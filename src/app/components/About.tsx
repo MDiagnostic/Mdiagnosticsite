@@ -222,7 +222,7 @@ export function About() {
               <div className="rounded-lg overflow-hidden shadow-xl h-[400px]">
                 {cookiesAccepted ? (
                   <iframe
-                    src="https://maps.google.com/maps?q=MDIAGNOSTIC,30+Rue+Simone+Veil,40140+Soustons&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11541.878697677832!2d-1.3419735!3d43.7513871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12af38596fa9d4c9%3A0xc7a04291985816e4!2s30%20Rue%20Simone%20Veil%2C%2040140%20Soustons%2C%20France!5e0!3m2!1sfr!2sfr!4v1710425000000!5m2!1sfr!2sfr"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

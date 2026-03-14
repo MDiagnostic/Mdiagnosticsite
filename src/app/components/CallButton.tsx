@@ -21,13 +21,13 @@ export function CallButton() {
         {/* Call button */}
         <a
           href="tel:+33777782659"
-          className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-xl transition-all duration-300 hover:scale-110 ${ 
+          className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-xl transition-all duration-300 hover:scale-110 ${ 
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
           style={{ backgroundColor: "#818958" }}
           aria-label="Appeler MDIAGNOSTIC"
         >
-          <Phone className="h-7 w-7 text-white" />
+          <Phone className="h-6 w-6 text-white" />
         </a>
         
         {/* Facebook button */}
@@ -35,7 +35,7 @@ export function CallButton() {
           href="https://www.facebook.com/share/1CS7PHnteq/?mibextid=wwXIfr"
           target="_blank"
           rel="noopener noreferrer"
-          className={`fixed bottom-6 right-[4.75rem] z-50 flex items-center justify-center w-14 h-14 transition-all duration-300 hover:scale-110 ${ 
+          className={`fixed bottom-6 right-24 z-50 flex items-center justify-center w-14 h-14 transition-all duration-300 hover:scale-110 ${ 
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
           aria-label="Suivez-nous sur Facebook"
