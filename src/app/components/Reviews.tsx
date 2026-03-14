@@ -331,87 +331,10 @@ export function Reviews() {
       );
     }
 
-    // Autres erreurs techniques
-    return (
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Avis Clients
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto bg-red-50 border-2 border-red-300 rounded-lg p-8">
-            <h3 className="text-xl font-bold text-red-900 mb-4">
-              ⚠️ Erreur de configuration
-            </h3>
-            <p className="text-red-700 mb-6">
-              {error}
-            </p>
-
-            <button
-              onClick={() => setShowDebug(!showDebug)}
-              className="mb-4 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
-            >
-              {showDebug ? "Masquer" : "Afficher"} les détails techniques
-            </button>
-
-            {showDebug && debugInfo && (
-              <div className="bg-gray-900 text-green-400 p-4 rounded font-mono text-xs overflow-auto max-h-96">
-                <pre>{JSON.stringify(debugInfo, null, 2)}</pre>
-              </div>
-            )}
-
-            <div className="mt-6 text-left bg-white p-6 rounded border border-red-200">
-              <h4 className="font-bold mb-3">🔧 Solutions possibles :</h4>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
-                <li>
-                  <strong>Vérifier les restrictions de domaine</strong> dans Google Cloud Console
-                  <br />
-                  <a 
-                    href="https://console.cloud.google.com/apis/credentials" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-600 underline text-xs"
-                  >
-                    → Ouvrir Google Cloud Console
-                  </a>
-                </li>
-                <li>
-                  <strong>Activer les APIs requises :</strong>
-                  <ul className="list-disc list-inside ml-4 mt-1">
-                    <li>Places API (New)</li>
-                    <li>Maps JavaScript API</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Vérifier le Place ID</strong> sur{" "}
-                  <a 
-                    href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-600 underline"
-                  >
-                    Place ID Finder
-                  </a>
-                </li>
-                <li>
-                  Attendre 2-5 minutes après avoir modifié la configuration Google Cloud
-                </li>
-              </ol>
-            </div>
-
-            <button
-              onClick={fetchReviews}
-              className="mt-6 w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-            >
-              <RefreshCw className="h-5 w-5" />
-              Réessayer
-            </button>
-          </div>
-        </div>
-      </section>
-    );
+    // Autres erreurs techniques - NE PAS AFFICHER AU PUBLIC
+    // Simplement masquer la section pour éviter d'afficher des erreurs techniques
+    console.error("❌ Erreur Google Places API (masquée au public):", error);
+    return null; // Ne rien afficher - section complètement masquée
   }
 
   // Si pas d'avis mais qu'on a la note moyenne
