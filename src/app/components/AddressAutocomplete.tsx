@@ -57,12 +57,20 @@ export function AddressAutocomplete({
       console.log('🔍 Recherche d\'adresse pour:', value);
       
       try {
-        // 🆕 TOUJOURS UTILISER LE PROXY SERVERLESS (en dev et prod)
-        const apiUrl = `/api/address?q=${encodeURIComponent(value)}`;
+        // 🆕 Essayer d'abord le proxy Vercel, puis fallback vers l'API directe
+        let apiUrl = `/api/address?q=${encodeURIComponent(value)}`;
         
         console.log('📡 URL appelée:', apiUrl);
         
-        const response = await fetch(apiUrl);
+        let response = await fetch(apiUrl);
+        
+        // Si le proxy retourne du HTML au lieu de JSON, utiliser l'API directe
+        const contentType = response.headers.get('content-type');
+        if (contentType?.includes('text/html')) {
+          console.log('⚠️ Proxy non disponible, utilisation API directe');
+          apiUrl = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`;
+          response = await fetch(apiUrl);
+        }
         
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));

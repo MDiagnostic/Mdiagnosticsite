@@ -239,7 +239,7 @@ export function Home() {
         <>
           <h4 className="font-semibold text-xl text-gray-900 mb-4">Qu'est-ce que le diagnostic termites ?</h4>
           <p className="mb-4">
-            Le <strong>diagnostic termites</strong> (ou état parasitaire) consiste à rechercher la présence de termites et autres insectes xylophages dans un bâtiment. Les termites se nourrissent de la cellulose du bois et peuvent causer des dégâts structurels importants en affaiblissant les charpentes, planchers, menuiseries et ossatures. Ces insectes agissent de manière discrète et peuvent passer inaperçus pendant des années.
+            Le <strong>diagnostic termites</strong> (ou état parasitaire) consiste �� rechercher la présence de termites et autres insectes xylophages dans un bâtiment. Les termites se nourrissent de la cellulose du bois et peuvent causer des dégâts structurels importants en affaiblissant les charpentes, planchers, menuiseries et ossatures. Ces insectes agissent de manière discrète et peuvent passer inaperçus pendant des années.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">À quoi sert le diagnostic termites ?</h4>
@@ -656,7 +656,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Pourquoi Me Choisir ?
+              Pourquoi choisir MDIAGNOSTIC ?
             </h2>
           </div>
 

@@ -48,18 +48,26 @@ export function Certifications() {
             </div>
 
             {/* Placeholder certificat */}
-            <div className="border rounded-lg overflow-hidden shadow-md mb-6 bg-gradient-to-br from-gray-50 to-white p-12">
-              <div className="text-center space-y-4">
-                <div className="w-24 h-24 bg-gradient-to-br from-[#818958] to-[#6a7249] rounded-full mx-auto flex items-center justify-center">
-                  <Award className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Certificat LCP</h3>
-                <p className="text-lg text-gray-700 font-semibold">Marine DUFFOURG</p>
-                <p className="text-gray-600">Certificat n°3340</p>
-                <div className="pt-4 border-t border-gray-200 mt-6">
-                  <p className="text-sm text-gray-500">Organisme accrédité COFRAC n°4-0390</p>
-                </div>
-              </div>
+            <div className="border rounded-lg overflow-hidden shadow-md mb-6 bg-white">
+              <ImageWithFallback
+                src="https://i.imgur.com/jPMef3O.jpeg"
+                alt="Certificat LCP n°3340 - Marine DUFFOURG - Diagnostiqueur Immobilier"
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Bouton de téléchargement */}
+            <div className="text-center mb-6">
+              <a
+                href="https://i.imgur.com/jPMef3O.jpeg"
+                download="Certificat-LCP-3340-Marine-DUFFOURG.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#818958] to-[#6a7249] text-white rounded-lg hover:opacity-90 transition-opacity font-medium shadow-md"
+              >
+                <Download className="w-5 h-5" />
+                Télécharger le certificat
+              </a>
             </div>
 
             {/* Informations certificat */}
