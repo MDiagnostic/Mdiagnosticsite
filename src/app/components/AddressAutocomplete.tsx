@@ -7,7 +7,7 @@ interface AddressAutocompleteProps {
   placeholder?: string;
   required?: boolean;
   hideWarning?: boolean;
-  onValidationChange?: (isValid: boolean) => void; // Callback pour indiquer si l'adresse est validée
+  onValidationChange?: (isValid: boolean) => void;
 }
 
 interface AddressSuggestion {
@@ -49,28 +49,41 @@ export function AddressAutocomplete({
     const searchAddress = async () => {
       if (!value || value.length < 3) {
         setSuggestions([]);
+        setShowSuggestions(false);
         return;
       }
 
       setIsLoading(true);
+      console.log('🔍 Recherche d\'adresse pour:', value);
+      
       try {
         const response = await fetch(
           `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`
         );
         const data = await response.json();
         
-        if (data.features) {
+        console.log('📦 Réponse API:', data);
+        
+        if (data.features && data.features.length > 0) {
           const addressSuggestions: AddressSuggestion[] = data.features.map((feature: any) => ({
             label: feature.properties.label,
             city: feature.properties.city,
             postcode: feature.properties.postcode,
             context: feature.properties.context,
           }));
+          
+          console.log('✅ Suggestions trouvées:', addressSuggestions.length);
           setSuggestions(addressSuggestions);
           setShowSuggestions(true);
+        } else {
+          console.log('⚠️ Aucune suggestion trouvée');
+          setSuggestions([]);
+          setShowSuggestions(false);
         }
       } catch (error) {
-        console.error('Erreur lors de la recherche d\'adresse:', error);
+        console.error('❌ Erreur lors de la recherche d\'adresse:', error);
+        setSuggestions([]);
+        setShowSuggestions(false);
       } finally {
         setIsLoading(false);
       }
@@ -82,6 +95,7 @@ export function AddressAutocomplete({
   }, [value]);
 
   const handleSelectSuggestion = (suggestion: AddressSuggestion) => {
+    console.log('✅ Adresse sélectionnée:', suggestion.label);
     onChange(suggestion.label);
     setIsValidated(true);
     setShowSuggestions(false);
@@ -118,7 +132,9 @@ export function AddressAutocomplete({
             e.currentTarget.style.borderColor = isValidated ? '#22c55e' : '#818958';
             if (suggestions.length > 0) setShowSuggestions(true);
           }}
-          onBlur={(e) => e.currentTarget.style.borderColor = isValidated ? '#22c55e' : '#e8ebe0'}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = isValidated ? '#22c55e' : '#e8ebe0';
+          }}
           autoComplete="off"
         />
         {isValidated && (
@@ -133,23 +149,50 @@ export function AddressAutocomplete({
         )}
       </div>
 
-      {/* Suggestions dropdown */}
+      {/* 🆕 AMÉLIORATION : Message d'aide visible AVANT de taper */}
+      {!isValidated && value.length === 0 && (
+        <div className="mt-2 flex items-start gap-2 text-xs text-blue-600 bg-blue-50 px-3 py-2 rounded border border-blue-200">
+          <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />
+          <span>💡 <strong>Important :</strong> Vous devez sélectionner une adresse dans la liste de suggestions pour continuer.</span>
+        </div>
+      )}
+
+      {/* Indicateur de chargement visible */}
+      {isLoading && value.length >= 3 && (
+        <div className="mt-2 flex items-center gap-2 text-xs text-gray-600 bg-gray-50 px-3 py-2 rounded border border-gray-200">
+          <div className="animate-spin h-3 w-3 border-2 border-gray-300 border-t-gray-600 rounded-full"></div>
+          <span>Recherche en cours...</span>
+        </div>
+      )}
+
+      {/* Suggestions dropdown avec z-index très élevé */}
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute z-50 w-full mt-1 bg-white border-2 rounded-lg shadow-lg max-h-60 overflow-y-auto"
-             style={{ borderColor: '#e8ebe0' }}>
+        <div 
+          className="absolute w-full mt-1 bg-white border-2 rounded-lg shadow-2xl max-h-60 overflow-y-auto"
+          style={{ 
+            borderColor: '#818958',
+            zIndex: 9999,
+            boxShadow: '0 10px 40px rgba(0,0,0,0.2)'
+          }}
+        >
+          <div className="bg-blue-50 px-3 py-2 border-b-2" style={{ borderColor: '#818958' }}>
+            <p className="text-xs font-semibold text-blue-900">
+              📍 {suggestions.length} adresse{suggestions.length > 1 ? 's' : ''} trouvée{suggestions.length > 1 ? 's' : ''} - Cliquez pour sélectionner
+            </p>
+          </div>
           {suggestions.map((suggestion, index) => (
             <button
               key={index}
               type="button"
               onClick={() => handleSelectSuggestion(suggestion)}
-              className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b last:border-b-0"
+              className="w-full text-left px-4 py-3 hover:bg-green-50 transition-colors border-b last:border-b-0"
               style={{ borderColor: '#e8ebe0' }}
             >
               <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
+                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#818958' }} />
                 <div className="flex-1">
-                  <p className="font-medium text-gray-900">{suggestion.label}</p>
-                  <p className="text-sm text-gray-500">{suggestion.context}</p>
+                  <p className="font-semibold text-gray-900">{suggestion.label}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{suggestion.context}</p>
                 </div>
               </div>
             </button>
@@ -157,11 +200,22 @@ export function AddressAutocomplete({
         </div>
       )}
 
-      {/* Message de validation */}
-      {!isValidated && value.length >= 3 && !isLoading && suggestions.length === 0 && (
-        <div className="flex items-center gap-2 text-xs text-orange-600 bg-orange-50 px-3 py-2 rounded border border-orange-200 mt-2">
-          <AlertCircle className="h-4 w-4 flex-shrink-0" />
-          <span>Aucune adresse trouvée. Vérifiez votre saisie.</span>
+      {/* Message si aucune suggestion */}
+      {!isLoading && !isValidated && value.length >= 3 && suggestions.length === 0 && (
+        <div className="mt-2 flex items-start gap-2 text-xs text-orange-600 bg-orange-50 px-3 py-2 rounded border border-orange-200">
+          <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold">Aucune adresse trouvée</p>
+            <p className="mt-1">Vérifiez votre saisie. Exemple : <span className="font-mono">12 avenue Ocean Soustons</span></p>
+          </div>
+        </div>
+      )}
+
+      {/* Message de succès */}
+      {isValidated && (
+        <div className="mt-2 flex items-center gap-2 text-xs text-green-600 bg-green-50 px-3 py-2 rounded border border-green-200">
+          <Check className="h-4 w-4 flex-shrink-0" />
+          <span>✅ Adresse validée !</span>
         </div>
       )}
     </div>

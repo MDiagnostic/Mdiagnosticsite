@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoImage from "figma:asset/2a375b4a7ecda1e77d1d776d95cb0a8844dd3c20.png";
 
 export function Header() {
   const location = useLocation();
@@ -21,10 +22,12 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="h-14 w-14 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#818958' }}>
-              <span className="text-white font-bold text-2xl">M</span>
-            </div>
+          <Link to="/" className="flex items-center gap-3">
+            <img 
+              src={logoImage} 
+              alt="MDIAGNOSTIC - Diagnostic Immobilier Soustons Landes" 
+              className="h-10 md:h-12 w-auto"
+            />
             <span className="font-bold text-xl text-gray-900">
               MDIAGNOSTIC
             </span>

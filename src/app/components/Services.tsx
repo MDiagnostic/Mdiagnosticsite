@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   Wind,
 } from "lucide-react";
+import officeImage from "figma:asset/608655ecda80d7fd8c42795352bce50cc4faa897.png";
 
 // Services - Page des diagnostics immobiliers
 export function Services() {
@@ -282,7 +283,7 @@ export function Services() {
             </div>
             <div className="rounded-lg overflow-hidden shadow-xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1765366417030-16d9765d920a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjBkZXNrJTIwd29ya3NwYWNlfGVufDF8fHx8MTc3MzQ5Mjc4Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src={officeImage}
                 alt="Bureau MDIAGNOSTIC - Diagnostic Immobilier Professionnel Soustons"
                 className="w-full h-full object-cover"
               />
