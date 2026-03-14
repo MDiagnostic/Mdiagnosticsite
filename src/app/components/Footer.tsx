@@ -1,7 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import lcpLogo from "figma:asset/5564070cf56fed0129b3c67e04592e709c9d745c.png";
 
 export function Footer() {
   return (
@@ -146,8 +145,8 @@ export function Footer() {
           <div className="flex items-center justify-center gap-8 mb-6">
             <div className="flex items-center gap-3 opacity-60">
               <span className="text-xs text-gray-500 uppercase tracking-wide">Certificateur & Assurances</span>
-              <div className="bg-white rounded px-2 py-1.5 flex items-center justify-center">
-                <img src={lcpLogo} alt="LCP Certification" className="h-6" />
+              <div className="bg-white rounded px-3 py-2 flex items-center justify-center">
+                <span className="font-bold text-sm" style={{ color: '#003781' }}>LCP</span>
               </div>
               <div className="bg-white rounded px-3 py-1.5 flex items-center justify-center">
                 <span className="font-bold text-xs" style={{ color: '#003781' }}>Allianz</span>

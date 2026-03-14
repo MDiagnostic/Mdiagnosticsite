@@ -2,7 +2,6 @@ import { Award, Download, Shield, CheckCircle } from "lucide-react";
 import { SEO } from "./SEO";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Link } from "react-router";
-import certificatLCP from "figma:asset/f47c3d3ca0a316c03f1ff3ad0286e63508d02f10.png";
 
 export function Certifications() {
   return (
@@ -46,23 +45,21 @@ export function Certifications() {
                   </p>
                 </div>
               </div>
-              <a
-                href={certificatLCP}
-                download="Certificat-LCP-MDIAGNOSTIC-3340.png"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#818958] to-[#6a7249] text-white rounded-lg hover:opacity-90 transition-opacity"
-              >
-                <Download className="w-4 h-4" />
-                Télécharger
-              </a>
             </div>
 
-            {/* Image du certificat */}
-            <div className="border rounded-lg overflow-hidden shadow-md mb-6">
-              <img
-                src={certificatLCP}
-                alt="Certificat de compétences LCP n°3340 - Marine DUFFOURG"
-                className="w-full h-auto"
-              />
+            {/* Placeholder certificat */}
+            <div className="border rounded-lg overflow-hidden shadow-md mb-6 bg-gradient-to-br from-gray-50 to-white p-12">
+              <div className="text-center space-y-4">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#818958] to-[#6a7249] rounded-full mx-auto flex items-center justify-center">
+                  <Award className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Certificat LCP</h3>
+                <p className="text-lg text-gray-700 font-semibold">Marine DUFFOURG</p>
+                <p className="text-gray-600">Certificat n°3340</p>
+                <div className="pt-4 border-t border-gray-200 mt-6">
+                  <p className="text-sm text-gray-500">Organisme accrédité COFRAC n°4-0390</p>
+                </div>
+              </div>
             </div>
 
             {/* Informations certificat */}

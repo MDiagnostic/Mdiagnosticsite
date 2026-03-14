@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import logo from "figma:asset/f2293806ddf5bc52098dedc76914e6e799cc8e1a.png";
 
 export function Header() {
   const location = useLocation();
@@ -23,7 +22,9 @@ export function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="MDIAGNOSTIC" className="h-14" />
+            <div className="h-14 w-14 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#818958' }}>
+              <span className="text-white font-bold text-2xl">M</span>
+            </div>
             <span className="font-bold text-xl text-gray-900">
               MDIAGNOSTIC
             </span>
