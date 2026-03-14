@@ -36,11 +36,10 @@ export function Reviews() {
   const GOOGLE_API_KEY = "AIzaSyBTzxHmnwWKJn7QdMY0qXkyjmou45aRPEA";
   
   // 🧪 MODE TEST : Place ID de la Tour Eiffel (320 000+ avis)
-  // ⚠️ DÉCOMMENTER LA LIGNE CI-DESSOUS POUR TESTER AVEC LA TOUR EIFFEL
-  const PLACE_ID = "ChIJLU7jZClu5kcR4PcOOO6p3I0"; // Tour Eiffel (TEST) ✅ ACTIVÉ
+  // const PLACE_ID = "ChIJLU7jZClu5kcR4PcOOO6p3I0"; // Tour Eiffel (TEST) ❌ DÉSACTIVÉ
   
   // 🏢 VOTRE VRAI PLACE ID (MDIAGNOSTIC Soustons)
-  // const PLACE_ID = "ChIJ2WDD9qJ2FwAR5FokmFKkoMc"; // ⬅️ DÉSACTIVÉ pour test
+  const PLACE_ID = "ChIJ2WDD9qJ2FwAR5FokmFKkoMc"; // �� ACTIVÉ
 
   // URL pour laisser un avis Google
   const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
@@ -55,13 +54,31 @@ export function Reviews() {
       setLoading(false);
       setError("Cookies requis");
     }
-  }, []);
+
+    // 🔄 ÉCOUTER LES CHANGEMENTS DU LOCALSTORAGE (par d'autres composants)
+    const checkConsent = () => {
+      const newConsent = localStorage.getItem("mdiagnostic-cookie-consent");
+      if (newConsent === "accepted" && !cookiesAccepted) {
+        console.log("🍪 Cookies acceptés détectés ! Rechargement des avis...");
+        setCookiesAccepted(true);
+        setLoading(true);
+        setError(null);
+      }
+    };
+
+    // Vérifier toutes les 500ms si les cookies ont été acceptés
+    const interval = setInterval(checkConsent, 500);
+
+    return () => clearInterval(interval);
+  }, [cookiesAccepted]);
 
   const handleAcceptCookies = () => {
     localStorage.setItem("mdiagnostic-cookie-consent", "accepted");
     localStorage.setItem("mdiagnostic-cookie-consent-date", new Date().toISOString());
     setCookiesAccepted(true);
-    // ✅ Pas besoin de reload ! React va automatiquement charger l'API via useEffect
+    setLoading(true); // ✅ Réinitialiser le loading
+    setError(null); // ✅ Effacer l'erreur
+    // ✅ Le useEffect va se déclencher automatiquement et charger l'API
   };
 
   // Fonction pour récupérer les avis
@@ -193,9 +210,10 @@ export function Reviews() {
   // Charger Google Maps API
   useEffect(() => {
     // Vérifier le consentement AVANT tout
-    const consent = localStorage.getItem("mdiagnostic-cookie-consent");
-    if (consent !== "accepted") {
-      console.log("❌ Cookies refusés - Google Places API non chargée");
+    if (cookiesAccepted !== true) {
+      console.log("❌ Cookies non acceptés - Google Places API non chargée");
+      setLoading(false);
+      setError("Cookies requis");
       return; // Ne rien charger
     }
 
