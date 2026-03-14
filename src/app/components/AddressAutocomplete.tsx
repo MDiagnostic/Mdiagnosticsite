@@ -57,9 +57,19 @@ export function AddressAutocomplete({
       console.log('🔍 Recherche d\'adresse pour:', value);
       
       try {
-        const response = await fetch(
-          `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`
-        );
+        // 🆕 UTILISER LA VERCEL SERVERLESS FUNCTION AU LIEU DE L'API DIRECTE
+        const apiUrl = import.meta.env.DEV 
+          ? `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`
+          : `/api/address?q=${encodeURIComponent(value)}`;
+        
+        console.log('📡 URL appelée:', apiUrl);
+        
+        const response = await fetch(apiUrl);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
         
         console.log('📦 Réponse API:', data);
