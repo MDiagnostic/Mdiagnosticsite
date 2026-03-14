@@ -57,16 +57,16 @@ export function AddressAutocomplete({
       console.log('🔍 Recherche d\'adresse pour:', value);
       
       try {
-        // 🆕 UTILISER LA VERCEL SERVERLESS FUNCTION AU LIEU DE L'API DIRECTE
-        const apiUrl = import.meta.env.DEV 
-          ? `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`
-          : `/api/address?q=${encodeURIComponent(value)}`;
+        // 🆕 TOUJOURS UTILISER LE PROXY SERVERLESS (en dev et prod)
+        const apiUrl = `/api/address?q=${encodeURIComponent(value)}`;
         
         console.log('📡 URL appelée:', apiUrl);
         
         const response = await fetch(apiUrl);
         
         if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          console.error('❌ Erreur API:', response.status, errorData);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         
@@ -158,14 +158,6 @@ export function AddressAutocomplete({
           </div>
         )}
       </div>
-
-      {/* 🆕 AMÉLIORATION : Message d'aide visible AVANT de taper */}
-      {!isValidated && value.length === 0 && (
-        <div className="mt-2 flex items-start gap-2 text-xs text-blue-600 bg-blue-50 px-3 py-2 rounded border border-blue-200">
-          <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />
-          <span>💡 <strong>Important :</strong> Vous devez sélectionner une adresse dans la liste de suggestions pour continuer.</span>
-        </div>
-      )}
 
       {/* Indicateur de chargement visible */}
       {isLoading && value.length >= 3 && (

@@ -202,4 +202,14 @@
   .animate-slide-up {
     animation: slide-up 0.3s ease-out;
   }
+
+  /* Animation pour la barre de progression de la modal de succès */
+  @keyframes progress {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
 }

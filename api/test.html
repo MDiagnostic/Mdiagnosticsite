@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test API Address</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Test API Address</h1>
+  <input type="text" id="searchInput" placeholder="Tapez une adresse..." value="12 avenue ocean soustons">
+  <button onclick="testAPI()">Rechercher</button>
+  <h2>Résultat :</h2>
+  <pre id="result">En attente...</pre>
+
+  <script>
+    async function testAPI() {
+      const query = document.getElementById('searchInput').value;
+      const result = document.getElementById('result');
+      
+      result.textContent = '⏳ Recherche en cours...';
+      
+      try {
+        const response = await fetch(`/api/address?q=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        
+        result.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        result.textContent = `❌ Erreur: ${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -6,6 +6,7 @@ import { AddressAutocomplete } from "./AddressAutocomplete";
 import { saveContactForm, uploadDiagnosticFile } from "../../lib/supabase";
 import { sanitizeInput, validateContactForm, detectSuspiciousPatterns, isValidFileSize, isValidFileType } from "../../lib/security";
 import { useRateLimit, formatTimeRemaining } from "../../hooks/useRateLimit";
+import { useNavigate } from "react-router";
 
 type TransactionType = "vente" | "location" | "copropriete" | "etablissement" | "entreprise" | "construction_neuve" | "";
 type PropertyType = "maison" | "appartement" | "immeuble" | "";
@@ -104,6 +105,10 @@ export function Contact() {
   const [consentError, setConsentError] = useState(false);
   const [isAddressValidated, setIsAddressValidated] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [nameError, setNameError] = useState("");
+  
+  const navigate = useNavigate();
   
   // 🔒 SÉCURITÉ : Rate limiting (max 3 envois toutes les 5 minutes)
   const { canAttempt, attempt, timeRemaining } = useRateLimit({
@@ -139,6 +144,12 @@ export function Contact() {
     ];
     
     return formats.some(format => format.test(phone));
+  };
+
+  // Fonction pour valider le format du nom (au moins 2 caractères, lettres et espaces)
+  const isValidName = (name: string): boolean => {
+    const nameRegex = /^[a-zA-ZÀ-ÿ\s'-]{2,}$/;
+    return nameRegex.test(name.trim());
   };
 
   // Fonction pour formater le numéro de téléphone
@@ -338,6 +349,14 @@ export function Contact() {
 
   const handleCoordonnéesSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // 🆕 VALIDATION : Vérifier que le nom est valide
+    if (!isValidName(formData.name)) {
+      setNameError("Le nom doit contenir au moins 2 caractères (lettres uniquement)");
+      return;
+    } else {
+      setNameError("");
+    }
     
     // Vérifier que le téléphone est valide avant de continuer
     if (!isValidPhoneNumber(formData.phone)) {
@@ -668,74 +687,12 @@ export function Contact() {
       
       setSubmitted(true);
       setSending(false);
+      setShowSuccessModal(true);
       
+      // Redirection automatique vers l'accueil après 4 secondes
       setTimeout(() => {
-        setSubmitted(false);
-        setCurrentStep(1);
-        setConsentAccepted(false);
-        setConsentError(false);
-        setFormData({
-          transactionType: "",
-          propertyType: "",
-          isNewConstruction: "",
-          constructionYear: "",
-          surface: "",
-          rooms: "",
-          electricityAge: "",
-          gasInstallation: "",
-          postalCode: "",
-          name: "",
-          email: "",
-          phone: "",
-          address: "",
-          message: "",
-          diagnostics: {
-            dpe: false,
-            amiante: false,
-            plomb: false,
-            electricite: false,
-            gaz: false,
-            termites: false,
-            erp: false,
-            loi_carrez: false,
-            loi_boutin: false,
-            dta: false,
-            dtg: false,
-            re2020: false,
-            rt2012: false,
-          },
-          diagnosticDates: {
-            dpe: "",
-            amiante: "",
-            plomb: "",
-            electricite: "",
-            gaz: "",
-            termites: "",
-            erp: "",
-            loi_carrez: "",
-            loi_boutin: "",
-            dta: "",
-            dtg: "",
-            re2020: "",
-            rt2012: "",
-          },
-          diagnosticFiles: {
-            dpe: null,
-            amiante: null,
-            plomb: null,
-            electricite: null,
-            gaz: null,
-            termites: null,
-            erp: null,
-            loi_carrez: null,
-            loi_boutin: null,
-            dta: null,
-            dtg: null,
-            re2020: null,
-            rt2012: null,
-          },
-        });
-      }, 5000);
+        navigate('/');
+      }, 4000);
     } catch (err) {
       console.error("Erreur lors de l'envoi:", err);
       setError(true);
@@ -872,6 +829,50 @@ export function Contact() {
 
   return (
     <div className="w-full">
+      {/* 🎉 MODAL DE SUCCÈS */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-[9999] p-4" style={{ backgroundColor: 'rgba(129, 137, 88, 0.2)' }}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 animate-in fade-in zoom-in duration-300">
+            <div className="text-center">
+              {/* Icône de succès animée */}
+              <div className="mx-auto mb-6 w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: '#818958' }}>
+                <CheckCircle className="h-12 w-12 text-white animate-in zoom-in duration-500" />
+              </div>
+              
+              {/* Titre */}
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Demande envoyée !
+              </h2>
+              
+              {/* Message */}
+              <p className="text-lg text-gray-700 mb-6">
+                Merci pour votre demande de devis.<br />
+                Je vous recontacterai très rapidement.
+              </p>
+              
+              {/* Compteur de redirection */}
+              <div className="bg-gray-50 rounded-lg p-4 border-2" style={{ borderColor: '#e8ebe0' }}>
+                <p className="text-sm text-gray-600">
+                  <HomeIcon className="inline h-4 w-4 mr-2" style={{ color: '#818958' }} />
+                  Redirection vers l'accueil dans quelques secondes...
+                </p>
+              </div>
+              
+              {/* Barre de progression */}
+              <div className="mt-4 w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div 
+                  className="h-full rounded-full animate-pulse"
+                  style={{ 
+                    backgroundColor: '#818958',
+                    animation: 'progress 4s linear forwards'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Modal de validation */}
       {showModal && modalDiagnostic && (
         <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 p-4" style={{ backgroundColor: 'rgba(129, 137, 88, 0.1)' }}>
@@ -1507,13 +1508,19 @@ export function Contact() {
                     <input
                       type="text"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        if (nameError) setNameError("");
+                      }}
                       className="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all text-lg"
-                      style={{ borderColor: '#e8ebe0' }}
-                      onFocus={(e) => e.currentTarget.style.borderColor = '#818958'}
-                      onBlur={(e) => e.currentTarget.style.borderColor = '#e8ebe0'}
+                      style={{ borderColor: nameError ? '#dc2626' : '#e8ebe0' }}
+                      onFocus={(e) => e.currentTarget.style.borderColor = nameError ? '#dc2626' : '#818958'}
+                      onBlur={(e) => e.currentTarget.style.borderColor = nameError ? '#dc2626' : '#e8ebe0'}
                       placeholder="Ex: Jean Dupont"
                     />
+                    {nameError && (
+                      <p className="text-sm text-red-600 mt-2">{nameError}</p>
+                    )}
                   </div>
 
                   {/* Email */}
@@ -1584,6 +1591,14 @@ export function Contact() {
 
                   <button
                     onClick={() => {
+                      // 🆕 VALIDATION : Vérifier que le nom est valide
+                      if (!isValidName(formData.name)) {
+                        setNameError("Le nom doit contenir au moins 2 caractères (lettres uniquement)");
+                        return;
+                      } else {
+                        setNameError("");
+                      }
+
                       // Vérifier que le téléphone est valide
                       if (!isValidPhoneNumber(formData.phone)) {
                         setPhoneError("Format invalide. Utilisez: 06 12 34 56 78, 06.12.34.56.78 ou 0612345678");
@@ -1916,13 +1931,19 @@ export function Contact() {
                         type="text"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) => {
+                          setFormData({ ...formData, name: e.target.value });
+                          if (nameError) setNameError("");
+                        }}
                         className="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all"
-                        style={{ borderColor: '#e8ebe0' }}
-                        onFocus={(e) => e.currentTarget.style.borderColor = '#818958'}
-                        onBlur={(e) => e.currentTarget.style.borderColor = '#e8ebe0'}
+                        style={{ borderColor: nameError ? '#dc2626' : '#e8ebe0' }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = nameError ? '#dc2626' : '#818958'}
+                        onBlur={(e) => e.currentTarget.style.borderColor = nameError ? '#dc2626' : '#e8ebe0'}
                         placeholder="Votre nom"
                       />
+                      {nameError && (
+                        <p className="text-sm text-red-600 mt-2">{nameError}</p>
+                      )}
                     </div>
 
                     <div>
