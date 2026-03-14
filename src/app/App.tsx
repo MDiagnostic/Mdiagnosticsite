@@ -1,3 +1,8 @@
+/**
+ * MDIAGNOSTIC - Application principale
+ * Site web professionnel de diagnostic immobilier
+ * Soustons, Landes (40)
+ */
 import { RouterProvider } from "react-router";
 import { router } from "./routes";
 import "../styles/index.css";

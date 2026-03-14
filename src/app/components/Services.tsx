@@ -10,6 +10,7 @@ import {
   Wind,
 } from "lucide-react";
 
+// Services - Page des diagnostics immobiliers
 export function Services() {
   const services = [
     {
