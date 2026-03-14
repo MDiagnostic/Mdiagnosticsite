@@ -9,7 +9,6 @@ import {
   AlertTriangle,
   Wind,
 } from "lucide-react";
-import officeImage from "figma:asset/608655ecda80d7fd8c42795352bce50cc4faa897.png";
 
 // Services - Page des diagnostics immobiliers
 export function Services() {
@@ -282,10 +281,16 @@ export function Services() {
               </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-xl">
-              <ImageWithFallback
-                src={officeImage}
+              <img
+                src="https://i.imgur.com/hCbEGkq.jpeg"
                 alt="Bureau MDIAGNOSTIC - Diagnostic Immobilier Professionnel Soustons"
-                className="w-full h-full object-cover"
+                className="w-full h-auto block"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (target.src.includes('hCbEGkq')) {
+                    target.src = 'https://i.ibb.co/3mXNf5qg/bureau.jpg';
+                  }
+                }}
               />
             </div>
           </div>
