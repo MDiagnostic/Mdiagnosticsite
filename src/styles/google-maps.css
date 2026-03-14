@@ -1,0 +1,87 @@
+/* Styles pour l'autocomplétion Google Maps */
+
+/* Style du champ input de PlaceAutocompleteElement */
+gmp-place-autocomplete {
+  width: 100%;
+  display: block;
+}
+
+/* Cibler l'input à l'intérieur de l'élément Google */
+gmp-place-autocomplete input {
+  width: 100% !important;
+  padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+  border: 2px solid #e8ebe0 !important;
+  border-radius: 0.5rem !important;
+  font-size: 1rem !important;
+  outline: none !important;
+  transition: border-color 0.2s ease !important;
+  font-family: inherit !important;
+}
+
+gmp-place-autocomplete input:focus {
+  border-color: #818958 !important;
+}
+
+/* Style des suggestions (dropdown) */
+.pac-container {
+  border-radius: 0.5rem !important;
+  border: 1px solid #e8ebe0 !important;
+  margin-top: 4px !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  font-family: inherit !important;
+}
+
+.pac-item {
+  padding: 0.75rem 1rem !important;
+  cursor: pointer !important;
+  border-top: 1px solid #e8ebe0 !important;
+  font-family: inherit !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4 !important;
+}
+
+.pac-item:first-child {
+  border-top: none !important;
+}
+
+.pac-item:hover,
+.pac-item-selected {
+  background-color: #f5f6f3 !important;
+}
+
+.pac-item-query {
+  color: #1f2937 !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+
+.pac-matched {
+  color: #818958 !important;
+  font-weight: 600 !important;
+}
+
+.pac-icon {
+  margin-right: 0.75rem !important;
+  background-image: none !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Icône de localisation personnalisée */
+.pac-icon::before {
+  content: "📍";
+  font-size: 16px;
+}
+
+/* Logo Google en bas */
+.pac-logo::after {
+  margin: 0.5rem !important;
+  display: block !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .pac-container {
+    max-width: calc(100vw - 2rem) !important;
+  }
+}

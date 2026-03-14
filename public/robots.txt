@@ -1,0 +1,26 @@
+# robots.txt pour MDIAGNOSTIC - Diagnostic Immobilier Soustons (Landes)
+# Site: https://www.mdiagnostic.fr
+# Contact: contact.mdiagnostic@gmail.com
+
+# Autoriser tous les robots d'exploration
+User-agent: *
+Allow: /
+
+# Bloquer l'accès aux fichiers temporaires et caches
+Disallow: /tmp/
+Disallow: *.json$
+
+# Autoriser spécifiquement Google
+User-agent: Googlebot
+Allow: /
+
+# Autoriser Bing
+User-agent: Bingbot
+Allow: /
+
+# Localisation du sitemap (IMPORTANT pour le SEO)
+Sitemap: https://www.mdiagnostic.fr/sitemap.xml
+
+# Délai de crawl (optionnel, en secondes)
+# Évite de surcharger le serveur
+Crawl-delay: 1

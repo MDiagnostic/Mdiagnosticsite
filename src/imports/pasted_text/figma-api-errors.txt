@@ -1,0 +1,77 @@
+Object
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Données formatées: Object
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 Supabase not configured - skipping file upload
+(anonymous) @ code_components_prev…153e7b.min.js.br:90Understand this warning
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 Supabase not configured - skipping save
+(anonymous) @ code_components_prev…153e7b.min.js.br:90Understand this warning
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📧 DONNÉES ENVOYÉES À EMAILJS : Object
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📎 FICHIERS UPLOADÉS : ObjectNo properties
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Email envoyé avec succ��s via EmailJS !
+vendor-core-ade2edecaf4781c7.min.js.br:63  GET https://www.figma.com/api/rev/o86n8O2nM28upruE0UoXCc/code_snapshot/8fd0cdd989a9b656b2f964d79fb097767be1601fcd4ebae61e811b847e2c3659 404 (Not Found)
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:63
+h @ vendor-191557b646cc979f.min.js.br:3
+(anonymous) @ 4239-c4c06d09094e9c07.min.js.br:1319
+T @ 4239-c4c06d09094e9c07.min.js.br:1319
+await in T
+C @ 4239-c4c06d09094e9c07.min.js.br:1319
+k @ 4239-c4c06d09094e9c07.min.js.br:1319
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:3
+validate @ figma_app-726b2563eb8cdce8.min.js.br:229
+getCodeSnapshot @ 4756-94ecc82b32cf4be6.min.js.br:3
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:34
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:3
+run @ 4756-94ecc82b32cf4be6.min.js.br:3
+k @ 4756-94ecc82b32cf4be6.min.js.br:34
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:33
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:33
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this error
+vendor-core-ade2edecaf4781c7.min.js.br:54 Failed to fetch snapshot files: E: XHR for "/api/rev/o86n8O2nM28upruE0UoXCc/code_snapshot/8fd0cdd989a9b656b2f964d79fb097767be1601fcd4ebae61e811b847e2c3659" failed with status 404
+    at C (4239-c4c06d09094e9c07.min.js.br:1319:13965)
+    at async Object.k [as get] (4239-c4c06d09094e9c07.min.js.br:1319:14348)
+    at async 4756-94ecc82b32cf4be6.min.js.br:3:27491
+    at async 4756-94ecc82b32cf4be6.min.js.br:34:30563
+    at async 4756-94ecc82b32cf4be6.min.js.br:3:27922
+    at async k (4756-94ecc82b32cf4be6.min.js.br:34:30071)
+    at async 4756-94ecc82b32cf4be6.min.js.br:33:105076
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:33
+await in (anonymous)
+(anonymous) @ 4756-94ecc82b32cf4be6.min.js.br:33
+aB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oD @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oL @ vendor-core-ade2edecaf4781c7.min.js.br:11
+f5 @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oB @ vendor-core-ade2edecaf4781c7.min.js.br:11
+oE @ vendor-core-ade2edecaf4781c7.min.js.br:11
+(anonymous) @ vendor-core-ade2edecaf4781c7.min.js.br:54
+S @ vendor-core-ade2edecaf4781c7.min.js.br:54
+O @ vendor-core-ade2edecaf4781c7.min.js.br:54Understand this warning
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 10:35:06 PM [vite] (client) hmr update /src/styles/index.css, /src/app/components/Admin.tsx, /src/app/components/Contact.tsx
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📥 Chargement de Google Maps API...
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Script Google Maps chargé
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Google Maps API prête
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 🔄 Tentative de récupération des avis Google...
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📍 Place ID: ChIJ2WDD9qJ2FwAR5FokmFKkoMc
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ⏰ Timestamp: 2026-03-13T22:35:14.814Z
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Utilisation de la nouvelle API Places
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📊 Données récupérées: {displayName: 'MDiagnostic', rating: 5, userRatingCount: 1, reviewsCount: 1, allReviews: Array(1)}
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Données formatées: {rating: 5, user_ratings_total: 1, reviews: Array(1)}
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📥 Chargement de Google Maps API...
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Script Google Maps chargé
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Google Maps API prête
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 🔄 Tentative de récupération des avis Google...
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📍 Place ID: ChIJ2WDD9qJ2FwAR5FokmFKkoMc
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ⏰ Timestamp: 2026-03-13T22:35:31.816Z
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Utilisation de la nouvelle API Places
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 📊 Données récupérées: {displayName: 'MDiagnostic', rating: 5, userRatingCount: 1, reviewsCount: 1, allReviews: Array(1)}
+code_components_preview_iframe-f4fd20809e153e7b.min.js.br:90 ✅ Données formatées: {rating: 5, user_ratings_total: 1, reviews: Array(1)}

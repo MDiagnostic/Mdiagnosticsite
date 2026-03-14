@@ -1,0 +1,23 @@
+{
+  "name": "MDIAGNOSTIC - Diagnostic Immobilier Landes",
+  "short_name": "MDIAGNOSTIC",
+  "description": "Diagnostiqueuse immobilière certifiée à Soustons dans les Landes. DPE, amiante, plomb, électricité, gaz, termites.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#818958",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "fr",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

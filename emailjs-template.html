@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouvelle demande de devis - MDIAGNOSTIC</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background-color: #f5f5f5;">
+  
+  <!-- Container principal -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
+    <tr>
+      <td align="center">
+        
+        <!-- Email Content -->
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 600px;">
+          
+          <!-- En-tête avec couleur de marque -->
+          <tr>
+            <td style="background: linear-gradient(135deg, rgb(129,137,88) 0%, rgb(100,107,60) 100%); padding: 40px 30px; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">
+                📋 Nouvelle Demande de Devis
+              </h1>
+              <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.9); font-size: 16px;">
+                MDIAGNOSTIC - Diagnostics Immobiliers
+              </p>
+            </td>
+          </tr>
+
+          <!-- Badge de notification -->
+          <tr>
+            <td style="padding: 30px 30px 0 30px;">
+              <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; border-radius: 8px; margin-bottom: 20px;">
+                <p style="margin: 0; color: #856404; font-size: 14px; font-weight: 600;">
+                  🔔 Action requise : Un nouveau client attend votre réponse
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Section : Coordonnées du client -->
+          <tr>
+            <td style="padding: 0 30px 20px 30px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+                    <h2 style="margin: 0 0 15px 0; color: rgb(129,137,88); font-size: 18px; font-weight: 700; border-bottom: 2px solid rgb(129,137,88); padding-bottom: 10px;">
+                      👤 Coordonnées du Client
+                    </h2>
+                    <table width="100%" cellpadding="5" cellspacing="0">
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; font-weight: 600; vertical-align: top; padding: 8px 0;">
+                          Nom :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; font-weight: 600; padding: 8px 0;">
+                          {{from_name}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Email :
+                        </td>
+                        <td style="padding: 8px 0;">
+                          <a href="mailto:{{from_email}}" style="color: rgb(129,137,88); font-size: 14px; text-decoration: none; font-weight: 600;">
+                            {{from_email}}
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Téléphone :
+                        </td>
+                        <td style="padding: 8px 0;">
+                          <a href="tel:{{phone}}" style="color: rgb(129,137,88); font-size: 14px; text-decoration: none; font-weight: 600;">
+                            {{phone}}
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Adresse :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0;">
+                          {{address}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Code postal :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0;">
+                          {{postal_code}}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Section : Informations du bien -->
+          <tr>
+            <td style="padding: 0 30px 20px 30px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+                    <h2 style="margin: 0 0 15px 0; color: rgb(129,137,88); font-size: 18px; font-weight: 700; border-bottom: 2px solid rgb(129,137,88); padding-bottom: 10px;">
+                      🏠 Informations du Bien
+                    </h2>
+                    <table width="100%" cellpadding="5" cellspacing="0">
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Type de transaction :
+                        </td>
+                        <td style="padding: 8px 0;">
+                          <span style="background-color: rgb(129,137,88); color: #ffffff; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase;">
+                            {{transaction_type}}
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Type de bien :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0; text-transform: capitalize;">
+                          {{property_type}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Année de construction :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0;">
+                          {{construction_year}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Surface :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; font-weight: 600; padding: 8px 0;">
+                          {{surface}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Nombre de pièces :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0;">
+                          {{rooms}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Âge de l'électricité :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0;">
+                          {{electricity_age}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 40%; color: #6c757d; font-size: 14px; vertical-align: top; padding: 8px 0;">
+                          Installation gaz :
+                        </td>
+                        <td style="color: #212529; font-size: 14px; padding: 8px 0;">
+                          {{gas_installation}}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Section : Diagnostics demandés -->
+          <tr>
+            <td style="padding: 0 30px 20px 30px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color: #e8f5e9; border: 2px solid rgb(129,137,88); padding: 20px; border-radius: 8px;">
+                    <h2 style="margin: 0 0 15px 0; color: rgb(129,137,88); font-size: 18px; font-weight: 700; border-bottom: 2px solid rgb(129,137,88); padding-bottom: 10px;">
+                      ✅ Diagnostics Demandés
+                    </h2>
+                    <p style="margin: 0; color: #2e7d32; font-size: 15px; font-weight: 600; line-height: 1.6; white-space: pre-wrap;">{{diagnostics}}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Section : Diagnostics déjà possédés -->
+          <tr>
+            <td style="padding: 0 30px 20px 30px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color: #fff8e1; border: 2px solid #ffa726; padding: 20px; border-radius: 8px;">
+                    <h2 style="margin: 0 0 15px 0; color: #f57c00; font-size: 18px; font-weight: 700; border-bottom: 2px solid #ffa726; padding-bottom: 10px;">
+                      📄 Diagnostics Déjà Possédés
+                    </h2>
+                    <p style="margin: 0; color: #e65100; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">{{existing_diagnostics}}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Section : Message du client -->
+          <tr>
+            <td style="padding: 0 30px 20px 30px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+                    <h2 style="margin: 0 0 15px 0; color: rgb(129,137,88); font-size: 18px; font-weight: 700; border-bottom: 2px solid rgb(129,137,88); padding-bottom: 10px;">
+                      💬 Message du Client
+                    </h2>
+                    <p style="margin: 0; color: #495057; font-size: 14px; line-height: 1.8; white-space: pre-wrap;">{{message}}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Bouton d'action -->
+          <tr>
+            <td style="padding: 10px 30px 30px 30px; text-align: center;">
+              <a href="mailto:{{from_email}}" style="display: inline-block; background: linear-gradient(135deg, rgb(129,137,88) 0%, rgb(100,107,60) 100%); color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 700; box-shadow: 0 4px 12px rgba(129,137,88,0.3);">
+                📧 Répondre au Client
+              </a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #dee2e6;">
+              <p style="margin: 0 0 10px 0; color: #212529; font-size: 16px; font-weight: 700;">
+                MDIAGNOSTIC
+              </p>
+              <p style="margin: 0 0 5px 0; color: #6c757d; font-size: 13px;">
+                Diagnostics Immobiliers à Soustons et ses environs
+              </p>
+              <p style="margin: 0 0 15px 0; color: #6c757d; font-size: 13px;">
+                📍 Soustons (40140) - Landes | 📧 contact.mdiagnostic@gmail.com
+              </p>
+              <p style="margin: 0; color: #adb5bd; font-size: 12px;">
+                SIRET : 10048692700013 | RCP Allianz n° 64715683 | Certifications LCP
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

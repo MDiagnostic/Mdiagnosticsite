@@ -1,0 +1,216 @@
+════════════════════════════════════════════════════════════════════════════════
+                    📧 APERÇU DES EMAILS MDIAGNOSTIC
+════════════════════════════════════════════════════════════════════════════════
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                    EMAIL 1 : POUR VOUS (MDIAGNOSTIC)                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  [DÉGRADÉ VERT OLIVE - COULEUR DE MARQUE]                    ║     ║
+║    ║                                                               ║     ║
+║    ║           📋 Nouvelle Demande de Devis                        ║     ║
+║    ║                                                               ║     ║
+║    ║        MDIAGNOSTIC - Diagnostics Immobiliers                 ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    ┌───────────────────────────────────────────────────────────────┐     ║
+║    │  🔔 Action requise : Un nouveau client attend votre réponse  │     ║
+║    └───────────────────────────────────────────────────────────────┘     ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  👤 COORDONNÉES DU CLIENT                                    ║     ║
+║    ╠═══════════════════════════════════════════════════════════════╣     ║
+║    ║  Nom :              Jean Dupont                              ║     ║
+║    ║  Email :            jean.dupont@example.com                  ║     ║
+║    ║  Téléphone :        06 12 34 56 78                           ║     ║
+║    ║  Adresse :          15 Rue de la Plage, Hossegor             ║     ║
+║    ║  Code postal :      40150                                    ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  🏠 INFORMATIONS DU BIEN                                     ║     ║
+║    ╠═══════════════════════════════════════════════════════════════╣     ║
+║    ║  Type de transaction :  [VENTE]                              ║     ║
+║    ║  Type de bien :         Maison                               ║     ║
+║    ║  Année :                1985                                 ║     ║
+║    ║  Surface :              120 m²                               ║     ║
+║    ║  Pièces :               5 pièces                             ║     ║
+║    ║  Âge électricité :      Plus de 15 ans                       ║     ║
+║    ║  Installation gaz :     Oui                                  ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  ✅ DIAGNOSTICS DEMANDÉS                     [FOND VERT]     ║     ║
+║    ╠═══════════════════════════════════════════════════════════════╣     ║
+║    ║  DPE, AMIANTE, PLOMB, ÉLECTRICITÉ, GAZ                       ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  📄 DIAGNOSTICS DÉJÀ POSSÉDÉS               [FOND ORANGE]    ║     ║
+║    ╠═══════════════════════════════════════════════════════════════╣     ║
+║    ║  TERMITES (possédé - date: 2023-06-15)                       ║     ║
+║    ║  LOI CARREZ (possédé - date: 2022-12-01)                     ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  💬 MESSAGE DU CLIENT                                        ║     ║
+║    ╠═══════════════════════════════════════════════════════════════╣     ║
+║    ║  "Bonjour, je souhaite obtenir un devis pour la vente       ║     ║
+║    ║   de ma maison à Hossegor. Merci de me recontacter          ║     ║
+║    ║   rapidement."                                               ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║                ┌─────────────────────────────────┐                        ║
+║                │  [📧 RÉPONDRE AU CLIENT]        │ [BOUTON VERT]         ║
+║                └─────────────────────────────────┘                        ║
+║                                                                           ║
+║    ┌───────────────────────────────────────────────────────────────┐     ║
+║    │              MDIAGNOSTIC                                      │     ║
+║    │  Diagnostics Immobiliers à Soustons et ses environs          │     ║
+║    │  📍 Soustons (40140) | 📧 contact.mdiagnostic@gmail.com      │     ║
+║    │  SIRET : 10048692700013 | RCP Allianz n° 64715683            │     ║
+║    └───────────────────────────────────────────────────────────────┘     ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+════════════════════════════════════════════════════════════════════════════════
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                   EMAIL 2 : POUR LE CLIENT (OPTIONNEL)                     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  [DÉGRADÉ VERT OLIVE - COULEUR DE MARQUE]                    ║     ║
+║    ║                                                               ║     ║
+║    ║              ✅ Demande Bien Reçue !                          ║     ║
+║    ║                                                               ║     ║
+║    ║             Merci pour votre confiance                        ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    Bonjour Jean,                                                          ║
+║                                                                           ║
+║    Nous avons bien reçu votre demande de devis pour vos diagnostics      ║
+║    immobiliers. Votre demande est en cours de traitement et nous         ║
+║    reviendrons vers vous dans les plus brefs délais (généralement        ║
+║    sous 24h ouvrées).                                                    ║
+║                                                                           ║
+║    ┌───────────────────────────────────────────────────────────────┐     ║
+║    │  📋 Récapitulatif de votre demande          [FOND VERT]      │     ║
+║    ├───────────────────────────────────────────────────────────────┤     ║
+║    │  Adresse du bien :      15 Rue de la Plage, Hossegor         │     ║
+║    │  Type de transaction :  Vente                                │     ║
+║    │  Diagnostics demandés : DPE, AMIANTE, PLOMB, ÉLECTRICITÉ     │     ║
+║    └───────────────────────────────────────────────────────────────┘     ║
+║                                                                           ║
+║    En attendant notre retour, voici quelques informations utiles :       ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║  ✅ Intervention rapide : Sous 48-72h après validation       ║     ║
+║    ║  ✅ Certifié et assuré : RCP Allianz n° 64715683             ║     ║
+║    ║  ✅ Zone : Soustons, Hossegor, Capbreton, Dax et environs    ║     ║
+║    ║  ✅ Rapport sous 48h : Vous recevez vos diagnostics          ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    Si vous avez des questions, n'hésitez pas à nous contacter :          ║
+║    📧 contact.mdiagnostic@gmail.com                                       ║
+║    📍 Soustons (40140) - Landes                                           ║
+║                                                                           ║
+║                ┌─────────────────────────────────┐                        ║
+║                │  [🌐 VISITER NOTRE SITE]        │ [BOUTON VERT]         ║
+║                └─────────────────────────────────┘                        ║
+║                                                                           ║
+║    ╔═══════════════════════════════════════════════════════════════╗     ║
+║    ║         Pourquoi choisir MDIAGNOSTIC ?                       ║     ║
+║    ╠═══════════════════════════════════════════════════════════════╣     ║
+║    ║                                                               ║     ║
+║    ║    🏆                 ⚡                 💰                    ║     ║
+║    ║  Expert certifié   Intervention    Tarifs transparents       ║     ║
+║    ║  et assuré         rapide                                    ║     ║
+║    ║                                                               ║     ║
+║    ╚═══════════════════════════════════════════════════════════════╝     ║
+║                                                                           ║
+║    ┌───────────────────────────────────────────────────────────────┐     ║
+║    │              MDIAGNOSTIC                      [FOND GRIS]    │     ║
+║    │  Diagnostics Immobiliers à Soustons et ses environs          │     ║
+║    │  SIRET : 10048692700013 | RCP Allianz n° 64715683            │     ║
+║    │                                                               │     ║
+║    │  Vous recevez cet email car vous avez demandé un devis.      │     ║
+║    └───────────────────────────────────────────────────────────────┘     ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+════════════════════════════════════════════════════════════════════════════════
+
+                            🎨 LÉGENDE DES COULEURS
+
+    ╔════════════════════════════════════════════════════════════════╗
+    ║  Élément                     │  Couleur                        ║
+    ╠════════════════════════════════════════════════════════════════╣
+    ║  En-tête principal           │  Dégradé vert olive             ║
+    ║  Titres de section           │  Vert olive rgb(129,137,88)     ║
+    ║  Diagnostics demandés        │  Fond vert clair                ║
+    ║  Diagnostics possédés        │  Fond orange clair              ║
+    ║  Informations générales      │  Fond gris clair                ║
+    ║  Boutons d'action            │  Vert olive avec ombre          ║
+    ║  Footer                      │  Gris foncé / Noir              ║
+    ╚════════════════════════════════════════════════════════════════╝
+
+════════════════════════════════════════════════════════════════════════════════
+
+                         📊 FLUX D'ENVOI DES EMAILS
+
+    Client remplit le formulaire sur le site
+                    │
+                    ▼
+        ┌───────────────────────────┐
+        │  Formulaire validé        │
+        └───────────────────────────┘
+                    │
+        ┌───────────┴───────────┐
+        │                       │
+        ▼                       ▼
+    ┌───────────┐         ┌───────────┐
+    │  EMAIL 1  │         │  EMAIL 2  │
+    │  → VOUS   │         │  → CLIENT │
+    └───────────┘         └───────────┘
+        │                       │
+        ▼                       ▼
+    Notification           Confirmation
+    de la demande         automatique
+
+════════════════════════════════════════════════════════════════════════════════
+
+                         💡 AVANTAGES DU SYSTÈME
+
+    ✅ Design professionnel aux couleurs de votre marque
+    ✅ Compatible tous clients email (Gmail, Outlook, Apple Mail)
+    ✅ Responsive : s'adapte aux mobiles et tablettes
+    ✅ Toutes les infos importantes bien structurées
+    ✅ Boutons d'action cliquables (Répondre, Visiter le site)
+    ✅ Footer avec infos légales (SIRET, RCP, etc.)
+    ✅ Confirmation automatique pour le client (optionnel)
+    ✅ Améliore l'image de marque et la confiance
+
+════════════════════════════════════════════════════════════════════════════════
+
+                            📝 PROCHAINES ÉTAPES
+
+    1. Copiez le contenu de /emailjs-template.html
+    2. Collez-le dans EmailJS Dashboard (template_e9qy7mf)
+    3. Testez l'envoi depuis EmailJS
+    4. Testez depuis votre site web
+    5. (Optionnel) Configurez l'email de confirmation client
+
+════════════════════════════════════════════════════════════════════════════════
+
+                        🎉 FÉLICITATIONS !
+
+    Vos emails sont maintenant professionnels et reflètent
+    parfaitement votre image de marque MDIAGNOSTIC !
+
+════════════════════════════════════════════════════════════════════════════════
