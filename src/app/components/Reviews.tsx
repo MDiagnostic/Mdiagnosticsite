@@ -34,7 +34,13 @@ export function Reviews() {
 
   // 🔧 CONFIGURATION - REMPLACEZ PAR VOS VRAIES VALEURS
   const GOOGLE_API_KEY = "AIzaSyBTzxHmnwWKJn7QdMY0qXkyjmou45aRPEA";
-  const PLACE_ID = "ChIJ2WDD9qJ2FwAR5FokmFKkoMc";
+  
+  // 🧪 MODE TEST : Place ID de la Tour Eiffel (320 000+ avis)
+  // ⚠️ DÉCOMMENTER LA LIGNE CI-DESSOUS POUR TESTER AVEC LA TOUR EIFFEL
+  const PLACE_ID = "ChIJLU7jZClu5kcR4PcOOO6p3I0"; // Tour Eiffel (TEST) ✅ ACTIVÉ
+  
+  // 🏢 VOTRE VRAI PLACE ID (MDIAGNOSTIC Soustons)
+  // const PLACE_ID = "ChIJ2WDD9qJ2FwAR5FokmFKkoMc"; // ⬅️ DÉSACTIVÉ pour test
 
   // URL pour laisser un avis Google
   const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
@@ -55,8 +61,7 @@ export function Reviews() {
     localStorage.setItem("mdiagnostic-cookie-consent", "accepted");
     localStorage.setItem("mdiagnostic-cookie-consent-date", new Date().toISOString());
     setCookiesAccepted(true);
-    // Recharger la page pour charger l'API Google
-    window.location.reload();
+    // ✅ Pas besoin de reload ! React va automatiquement charger l'API via useEffect
   };
 
   // Fonction pour récupérer les avis
@@ -331,10 +336,65 @@ export function Reviews() {
       );
     }
 
-    // Autres erreurs techniques - NE PAS AFFICHER AU PUBLIC
-    // Simplement masquer la section pour éviter d'afficher des erreurs techniques
+    // Autres erreurs techniques - Afficher un fallback professionnel
     console.error("❌ Erreur Google Places API (masquée au public):", error);
-    return null; // Ne rien afficher - section complètement masquée
+    
+    // Afficher une section élégante avec invitation à voir sur Google
+    return (
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Avis Clients
+            </h2>
+          </div>
+
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-12 border-2 border-green-200">
+              <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                <Star className="h-12 w-12 text-yellow-400 fill-current" />
+              </div>
+              
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Découvrez l'avis de nos clients
+              </h3>
+              
+              <p className="text-lg text-gray-600 mb-8">
+                Consultez les retours d'expérience de nos clients sur notre page Google My Business
+              </p>
+
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=MDIAGNOSTIC+Soustons&query_place_id=${PLACE_ID}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-white text-lg hover:opacity-90 transition-opacity shadow-lg"
+                style={{ backgroundColor: '#818958' }}
+              >
+                <Star className="h-5 w-5 fill-current" />
+                Voir nos avis sur Google
+                <ExternalLink className="h-5 w-5" />
+              </a>
+
+              <div className="mt-8 pt-8 border-t border-green-300">
+                <p className="text-sm text-gray-600 mb-4">
+                  Vous avez fait appel à nos services ?
+                </p>
+                <a
+                  href={GOOGLE_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 border-2 rounded-lg font-medium transition-all hover:bg-white text-sm"
+                  style={{ borderColor: '#818958', color: '#818958' }}
+                >
+                  Laisser un avis
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   // Si pas d'avis mais qu'on a la note moyenne
