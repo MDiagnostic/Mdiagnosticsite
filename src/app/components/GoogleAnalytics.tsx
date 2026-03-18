@@ -15,19 +15,32 @@ declare global {
 export function GoogleAnalytics() {
   const location = useLocation();
   
-  // 🔧 CONFIGURATION - Remplacez par votre ID Google Analytics
+  // 🔧 CONFIGURATION - ID Google Analytics
   // Format : G-XXXXXXXXXX
-  const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
+  const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-MWW41TL2L3';
 
   useEffect(() => {
+    console.log('🔍 [Google Analytics] Initialisation...');
+    console.log('📊 [Google Analytics] ID de mesure:', GA_MEASUREMENT_ID);
+    
     // Ne pas charger GA si pas de consentement cookies
     const consent = localStorage.getItem('mdiagnostic-cookie-consent');
+    console.log('🍪 [Google Analytics] Consentement cookies:', consent);
+    
     if (consent !== 'accepted' || !GA_MEASUREMENT_ID) {
+      if (consent !== 'accepted') {
+        console.warn('⚠️ [Google Analytics] Cookies non acceptés - Google Analytics désactivé');
+      }
+      if (!GA_MEASUREMENT_ID) {
+        console.error('❌ [Google Analytics] Aucun ID de mesure configuré');
+      }
       return;
     }
 
     // Charger Google Analytics uniquement si le script n'est pas déjà présent
     if (!window.gtag) {
+      console.log('🚀 [Google Analytics] Chargement du script...');
+      
       // Créer dataLayer
       window.dataLayer = window.dataLayer || [];
       window.gtag = function gtag() {
@@ -46,7 +59,15 @@ export function GoogleAnalytics() {
       const script = document.createElement('script');
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      script.onload = () => {
+        console.log('✅ [Google Analytics] Script chargé avec succès');
+      };
+      script.onerror = () => {
+        console.error('❌ [Google Analytics] Erreur lors du chargement du script (bloqueur de pub ?)');
+      };
       document.head.appendChild(script);
+    } else {
+      console.log('✅ [Google Analytics] Script déjà chargé');
     }
   }, [GA_MEASUREMENT_ID]);
 
@@ -54,6 +75,7 @@ export function GoogleAnalytics() {
   useEffect(() => {
     const consent = localStorage.getItem('mdiagnostic-cookie-consent');
     if (consent === 'accepted' && window.gtag && GA_MEASUREMENT_ID) {
+      console.log('📄 [Google Analytics] Page vue:', location.pathname + location.search);
       window.gtag('config', GA_MEASUREMENT_ID, {
         page_path: location.pathname + location.search,
       });
