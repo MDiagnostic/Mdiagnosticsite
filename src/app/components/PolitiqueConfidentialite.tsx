@@ -61,7 +61,7 @@ export function PolitiqueConfidentialite() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span>•</span>
-                  <span><strong>Données de navigation :</strong> uniquement pour des statistiques anonymisées (aucun cookie publicitaire ou de tracking)</span>
+                  <span><strong>Données de navigation :</strong> nous utilisons Google Analytics 4 pour des statistiques anonymisées (pages visitées, durée de visite, appareil utilisé). Ces données sont collectées uniquement avec votre consentement et les adresses IP sont anonymisées.</span>
                 </li>
               </ul>
             </div>
@@ -93,6 +93,10 @@ export function PolitiqueConfidentialite() {
                 <li className="flex items-start gap-2">
                   <span>•</span>
                   <span>Respecter nos obligations légales et réglementaires</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span>•</span>
+                  <span>Améliorer notre site web grâce à des statistiques anonymisées (Google Analytics 4)</span>
                 </li>
               </ul>
               <p className="text-gray-600 mt-3">

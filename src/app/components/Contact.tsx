@@ -7,6 +7,7 @@ import { saveContactForm, uploadDiagnosticFile } from "../../lib/supabase";
 import { sanitizeInput, validateContactForm, detectSuspiciousPatterns, isValidFileSize, isValidFileType } from "../../lib/security";
 import { useRateLimit, formatTimeRemaining } from "../../hooks/useRateLimit";
 import { useNavigate } from "react-router";
+import { trackFormSubmit } from "./GoogleAnalytics";
 
 type TransactionType = "vente" | "location" | "copropriete" | "etablissement" | "entreprise" | "construction_neuve" | "";
 type PropertyType = "maison" | "appartement" | "immeuble" | "";
@@ -684,6 +685,9 @@ export function Contact() {
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
         console.log("✅ Email envoyé avec succ��s via EmailJS !");
       }
+      
+      // 📊 Tracker la soumission du devis dans Google Analytics
+      trackFormSubmit('devis');
       
       setSubmitted(true);
       setSending(false);

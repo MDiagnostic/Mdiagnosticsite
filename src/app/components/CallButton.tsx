@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react";
 import { useState, useEffect } from "react";
+import { trackPhoneClick } from "./GoogleAnalytics";
 
 export function CallButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,6 +15,10 @@ export function CallButton() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handlePhoneClick = () => {
+    trackPhoneClick("07 77 78 26 59");
+  };
+
   return (
     <>
       {/* Mobile sticky buttons */}
@@ -21,6 +26,7 @@ export function CallButton() {
         {/* Call button */}
         <a
           href="tel:+33777782659"
+          onClick={handlePhoneClick}
           className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-xl transition-all duration-300 hover:scale-110 ${ 
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
@@ -52,6 +58,7 @@ export function CallButton() {
         {/* Call button */}
         <a
           href="tel:+33777782659"
+          onClick={handlePhoneClick}
           className={`fixed bottom-8 right-8 z-40 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-2xl hover:scale-105 ${ 
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
