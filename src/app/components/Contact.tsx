@@ -8,6 +8,7 @@ import { sanitizeInput, validateContactForm, detectSuspiciousPatterns, isValidFi
 import { useRateLimit, formatTimeRemaining } from "../../hooks/useRateLimit";
 import { useNavigate } from "react-router";
 import { trackFormSubmit } from "./GoogleAnalytics";
+import { isTermitesZone } from "../../lib/termites";
 
 type TransactionType = "vente" | "location" | "copropriete" | "etablissement" | "entreprise" | "construction_neuve" | "";
 type PropertyType = "maison" | "appartement" | "immeuble" | "";
@@ -21,6 +22,7 @@ interface DiagnosticForm {
   surface: string;
   rooms: string;
   electricityAge: string;
+  hasGasInstallation: string;
   gasInstallation: string;
   postalCode: string;
   name: string;
@@ -43,6 +45,7 @@ export function Contact() {
     surface: "",
     rooms: "",
     electricityAge: "",
+    hasGasInstallation: "",
     gasInstallation: "",
     postalCode: "",
     name: "",
@@ -271,8 +274,8 @@ export function Contact() {
       if (yearNum && yearNum < 1997) diags.amiante = true;
       if (yearNum && yearNum < 1949) diags.plomb = true;
       if (formData.electricityAge === "oui" || formData.electricityAge === "ne sais pas") diags.electricite = true;
-      if (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas") diags.gaz = true;
-      if (formData.postalCode && formData.postalCode.startsWith("40")) {
+      if (formData.hasGasInstallation === "oui" && (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas")) diags.gaz = true;
+      if (formData.postalCode && isTermitesZone(formData.postalCode)) {
         diags.termites = true;
       }
       if (formData.propertyType === "appartement") {
@@ -292,7 +295,7 @@ export function Contact() {
       if (yearNum && yearNum < 1997) diags.amiante = true;
       if (yearNum && yearNum < 1949) diags.plomb = true;
       if (formData.electricityAge === "oui" || formData.electricityAge === "ne sais pas") diags.electricite = true;
-      if (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas") diags.gaz = true;
+      if (formData.hasGasInstallation === "oui" && (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas")) diags.gaz = true;
       diags.loi_boutin = true;
       // Attestations pour constructions neuves
       if (formData.isNewConstruction === "oui") {
@@ -311,7 +314,7 @@ export function Contact() {
       diags.amiante = true;
       if (yearNum && yearNum < 1949) diags.plomb = true;
       if (formData.electricityAge === "oui" || formData.electricityAge === "ne sais pas") diags.electricite = true;
-      if (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas") diags.gaz = true;
+      if (formData.hasGasInstallation === "oui" && (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas")) diags.gaz = true;
       diags.erp = true;
       // Attestations pour constructions neuves
       if (formData.isNewConstruction === "oui") {
@@ -594,6 +597,7 @@ export function Contact() {
         surface: sanitizeInput(formData.surface),
         rooms: sanitizeInput(formData.rooms),
         electricity_age: sanitizeInput(formData.electricityAge),
+        has_gas_installation: sanitizeInput(formData.hasGasInstallation),
         gas_installation: sanitizeInput(formData.gasInstallation),
         message: sanitizeInput(formData.message),
         diagnostics_needed: selectedDiagsArray,
@@ -636,7 +640,8 @@ export function Contact() {
         console.log("  Surface :", formData.surface, "m²");
         console.log("  Pièces :", formData.rooms);
         console.log("  Âge électricité :", formData.electricityAge || "N/A");
-        console.log("  Installation gaz :", formData.gasInstallation || "N/A");
+        console.log("  A une installation gaz :", formData.hasGasInstallation || "N/A");
+        console.log("  Âge installation gaz :", formData.hasGasInstallation === "oui" ? (formData.gasInstallation || "N/A") : "Non applicable");
         console.log("");
         console.log("━���━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
         console.log("📋 DIAGNOSTICS DEMANDÉS :");
@@ -671,7 +676,8 @@ export function Contact() {
           surface: formData.surface + " m²",
           rooms: formData.rooms + " pièces",
           electricity_age: formData.electricityAge,
-          gas_installation: formData.gasInstallation,
+          has_gas_installation: formData.hasGasInstallation,
+          gas_installation: formData.hasGasInstallation === "oui" ? formData.gasInstallation : "Non applicable",
           postal_code: formData.postalCode,
           diagnostics: selectedDiags,
           existing_diagnostics: existingDiags || "Aucun",
@@ -693,10 +699,10 @@ export function Contact() {
       setSending(false);
       setShowSuccessModal(true);
       
-      // Redirection automatique vers l'accueil après 4 secondes
+      // Redirection automatique vers l'accueil après 6 secondes
       setTimeout(() => {
         navigate('/');
-      }, 4000);
+      }, 6000);
     } catch (err) {
       console.error("Erreur lors de l'envoi:", err);
       setError(true);
@@ -744,7 +750,7 @@ export function Contact() {
       if (yearNum && yearNum < 1949) allDiags.push("plomb");
       if (formData.electricityAge === "oui" || formData.electricityAge === "ne sais pas") allDiags.push("electricite");
       if (formData.gasInstallation === "oui" || formData.gasInstallation === "ne sais pas") allDiags.push("gaz");
-      if (formData.postalCode && formData.postalCode.startsWith("40")) allDiags.push("termites");
+      if (formData.postalCode && isTermitesZone(formData.postalCode)) allDiags.push("termites");
       if (formData.propertyType === "appartement") allDiags.push("loi_carrez");
     } else if (formData.transactionType === "location") {
       allDiags.push("dpe", "erp", "loi_boutin");
@@ -810,7 +816,7 @@ export function Contact() {
         if (formData.gasInstallation === "non") return "Votre bien n'a pas d'installation de gaz";
         return "Non requis pour votre situation";
       case "termites":
-        if (formData.postalCode && !formData.postalCode.startsWith("40")) return "Votre bien n'est pas situé en zone à risque termites";
+        if (formData.postalCode && !isTermitesZone(formData.postalCode)) return "Votre bien n'est pas situé en zone à risque termites";
         return "Non requis pour votre situation";
       case "loi_carrez":
         if (formData.propertyType === "maison") return "La Loi Carrez concerne les biens en copropriété (surtout appartements)";
@@ -868,7 +874,7 @@ export function Contact() {
                   className="h-full rounded-full animate-pulse"
                   style={{ 
                     backgroundColor: '#818958',
-                    animation: 'progress 4s linear forwards'
+                    animation: 'progress 6s linear forwards'
                   }}
                 />
               </div>
@@ -1818,44 +1824,76 @@ export function Contact() {
 
                   <div className="bg-white border-2 rounded-lg p-6" style={{ borderColor: '#e8ebe0' }}>
                     <h3 className="font-semibold text-lg text-gray-900 mb-4">
-                      Installation de gaz de plus de 15 ans ?
+                      Votre bien dispose-t-il d'une installation intérieure de gaz ?
                     </h3>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-2 gap-3">
                       <button
-                        onClick={() => setFormData({ ...formData, gasInstallation: "oui" })}
+                        onClick={() => setFormData({ ...formData, hasGasInstallation: "oui" })}
                         className={`py-3 px-4 rounded-lg font-semibold transition-all ${
-                          formData.gasInstallation === "oui"
+                          formData.hasGasInstallation === "oui"
                             ? "text-white"
                             : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
-                        style={formData.gasInstallation === "oui" ? { backgroundColor: '#818958' } : {}}
+                        style={formData.hasGasInstallation === "oui" ? { backgroundColor: '#818958' } : {}}
                       >
                         Oui
                       </button>
                       <button
-                        onClick={() => setFormData({ ...formData, gasInstallation: "non" })}
+                        onClick={() => setFormData({ ...formData, hasGasInstallation: "non", gasInstallation: "" })}
                         className={`py-3 px-4 rounded-lg font-semibold transition-all ${
-                          formData.gasInstallation === "non"
+                          formData.hasGasInstallation === "non"
                             ? "text-white"
                             : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
-                        style={formData.gasInstallation === "non" ? { backgroundColor: '#818958' } : {}}
+                        style={formData.hasGasInstallation === "non" ? { backgroundColor: '#818958' } : {}}
                       >
                         Non
                       </button>
-                      <button
-                        onClick={() => setFormData({ ...formData, gasInstallation: "ne sais pas" })}
-                        className={`py-3 px-4 rounded-lg font-semibold transition-all ${
-                          formData.gasInstallation === "ne sais pas"
-                            ? "text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                        style={formData.gasInstallation === "ne sais pas" ? { backgroundColor: '#818958' } : {}}
-                      >
-                        Je ne sais pas
-                      </button>
                     </div>
                   </div>
+
+                  {formData.hasGasInstallation === "oui" && (
+                    <div className="bg-white border-2 rounded-lg p-6" style={{ borderColor: '#e8ebe0' }}>
+                      <h3 className="font-semibold text-lg text-gray-900 mb-4">
+                        Âge de l'installation intérieure de gaz
+                      </h3>
+                      <div className="grid grid-cols-3 gap-3">
+                        <button
+                          onClick={() => setFormData({ ...formData, gasInstallation: "non" })}
+                          className={`py-3 px-4 rounded-lg font-semibold transition-all ${
+                            formData.gasInstallation === "non"
+                              ? "text-white"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          }`}
+                          style={formData.gasInstallation === "non" ? { backgroundColor: '#818958' } : {}}
+                        >
+                          Moins de 15 ans
+                        </button>
+                        <button
+                          onClick={() => setFormData({ ...formData, gasInstallation: "oui" })}
+                          className={`py-3 px-4 rounded-lg font-semibold transition-all ${
+                            formData.gasInstallation === "oui"
+                              ? "text-white"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          }`}
+                          style={formData.gasInstallation === "oui" ? { backgroundColor: '#818958' } : {}}
+                        >
+                          Plus de 15 ans
+                        </button>
+                        <button
+                          onClick={() => setFormData({ ...formData, gasInstallation: "ne sais pas" })}
+                          className={`py-3 px-4 rounded-lg font-semibold transition-all ${
+                            formData.gasInstallation === "ne sais pas"
+                              ? "text-white"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          }`}
+                          style={formData.gasInstallation === "ne sais pas" ? { backgroundColor: '#818958' } : {}}
+                        >
+                          Je ne sais pas
+                        </button>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="bg-white border-2 rounded-lg p-6" style={{ borderColor: '#e8ebe0' }}>
                     <h3 className="font-semibold text-lg text-gray-900 mb-4">
@@ -1892,10 +1930,23 @@ export function Contact() {
 
                   <button
                     onClick={handleInstallationsSubmit}
-                    disabled={!formData.electricityAge || !formData.gasInstallation || !formData.postalCode || formData.postalCode.length !== 5}
+                    disabled={
+                      !formData.electricityAge || 
+                      !formData.hasGasInstallation || 
+                      (formData.hasGasInstallation === "oui" && !formData.gasInstallation) ||
+                      !formData.postalCode || 
+                      formData.postalCode.length !== 5
+                    }
                     className="w-full text-white px-8 py-3 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ backgroundColor: '#818958' }}
-                    onMouseEnter={(e) => (!formData.electricityAge || !formData.gasInstallation || !formData.postalCode || formData.postalCode.length !== 5) ? null : e.currentTarget.style.backgroundColor = '#6b7148'}
+                    onMouseEnter={(e) => {
+                      const isDisabled = !formData.electricityAge || 
+                        !formData.hasGasInstallation || 
+                        (formData.hasGasInstallation === "oui" && !formData.gasInstallation) ||
+                        !formData.postalCode || 
+                        formData.postalCode.length !== 5;
+                      if (!isDisabled) e.currentTarget.style.backgroundColor = '#6b7148';
+                    }}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#818958'}
                   >
                     Continuer

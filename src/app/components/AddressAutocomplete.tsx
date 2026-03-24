@@ -57,24 +57,25 @@ export function AddressAutocomplete({
       console.log('🔍 Recherche d\'adresse pour:', value);
       
       try {
-        // 🆕 Essayer d'abord le proxy Vercel, puis fallback vers l'API directe
-        let apiUrl = `/api/address?q=${encodeURIComponent(value)}`;
+        // Utiliser directement l'API data.gouv.fr (pas de proxy)
+        const apiUrl = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`;
         
         console.log('📡 URL appelée:', apiUrl);
         
-        let response = await fetch(apiUrl);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 secondes timeout
         
-        // Si le proxy retourne du HTML au lieu de JSON, utiliser l'API directe
-        const contentType = response.headers.get('content-type');
-        if (contentType?.includes('text/html')) {
-          console.log('⚠️ Proxy non disponible, utilisation API directe');
-          apiUrl = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}&limit=5`;
-          response = await fetch(apiUrl);
-        }
+        const response = await fetch(apiUrl, {
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/json',
+          }
+        });
+        
+        clearTimeout(timeoutId);
         
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error('❌ Erreur API:', response.status, errorData);
+          console.error('❌ Erreur API:', response.status);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         
@@ -98,8 +99,12 @@ export function AddressAutocomplete({
           setSuggestions([]);
           setShowSuggestions(false);
         }
-      } catch (error) {
-        console.error('❌ Erreur lors de la recherche d\'adresse:', error);
+      } catch (error: any) {
+        if (error.name === 'AbortError') {
+          console.error('❌ Timeout de la requête après 10 secondes');
+        } else {
+          console.error('❌ Erreur lors de la recherche d\'adresse:', error);
+        }
         setSuggestions([]);
         setShowSuggestions(false);
       } finally {
