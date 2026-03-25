@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   Wind,
 } from "lucide-react";
+import { SEO } from "./SEO";
 
 // Services - Page des diagnostics immobiliers
 export function Services() {
@@ -81,6 +82,12 @@ export function Services() {
 
   return (
     <div className="w-full">
+      <SEO
+        title="Services Diagnostics Immobiliers Landes 40 | MDIAGNOSTIC Soustons"
+        description="Tous nos services de diagnostic immobilier dans les Landes : DPE, amiante, plomb, électricité, gaz, termites, ERP. Diagnostiqueuse certifiée à Soustons intervenant sur Hossegor, Capbreton, Dax. Devis gratuit."
+        keywords="services diagnostic immobilier Landes, DPE Soustons, diagnostic amiante Hossegor, diagnostic plomb Capbreton, diagnostic électricité Dax, diagnostic gaz Landes, termites 40, ERP Landes, diagnostiqueur certifié"
+        canonical="https://www.mdiagnostic.fr/services"
+      />
       {/* Header */}
       <section className="text-white py-16" style={{ background: 'linear-gradient(to bottom right, #818958, #6b7148)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

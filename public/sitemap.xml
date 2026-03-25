@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <!-- Page d'accueil (priorité maximale) -->
   <url>
     <loc>https://www.mdiagnostic.fr/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,63 +14,63 @@
   <!-- Pages principales (haute priorité) -->
   <url>
     <loc>https://www.mdiagnostic.fr/vente</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/location</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/copropriete</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/autres-prestations</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/services</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/zone-intervention</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/contact</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/a-propos</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/certifications</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -76,21 +78,21 @@
   <!-- Pages légales (priorité standard) -->
   <url>
     <loc>https://www.mdiagnostic.fr/mentions-legales</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/politique-confidentialite</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
     <loc>https://www.mdiagnostic.fr/gestion-cookies</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

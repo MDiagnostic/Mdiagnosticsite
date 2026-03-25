@@ -6,6 +6,7 @@ import {
 import { useState } from "react";
 import { DiagnosticModal } from "./DiagnosticModal";
 import { Link } from "react-router";
+import { SEO } from "./SEO";
 
 export function AutresPrestations() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -141,6 +142,12 @@ export function AutresPrestations() {
 
   return (
     <div className="w-full">
+      <SEO
+        title="Autres Prestations Diagnostic Landes 40 | Amiante Travaux RE2020 RT2012 | MDIAGNOSTIC"
+        description="Prestations spécialisées diagnostic immobilier Landes : Amiante Avant Travaux, Attestation RE2020, Attestation RT2012. Diagnostiqueuse certifiée à Soustons intervenant sur Hossegor, Capbreton, Dax."
+        keywords="diagnostic amiante avant travaux Landes, DAAT Soustons, attestation RE2020 Landes, attestation RT2012 Hossegor, diagnostic travaux Capbreton, construction neuve Dax, rénovation Landes 40"
+        canonical="https://www.mdiagnostic.fr/autres-prestations"
+      />
       {/* Header */}
       <section className="text-white py-16" style={{ background: 'linear-gradient(to bottom right, #818958, #6b7148)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

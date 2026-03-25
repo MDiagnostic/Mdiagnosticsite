@@ -6,10 +6,6 @@
 User-agent: *
 Allow: /
 
-# Bloquer l'accès aux fichiers temporaires et caches
-Disallow: /tmp/
-Disallow: *.json$
-
 # Autoriser spécifiquement Google
 User-agent: Googlebot
 Allow: /

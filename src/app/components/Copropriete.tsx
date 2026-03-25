@@ -6,6 +6,7 @@ import {
 import { useState } from "react";
 import { DiagnosticModal } from "./DiagnosticModal";
 import { Link } from "react-router";
+import { SEO } from "./SEO";
 
 export function Copropriete() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -112,6 +113,12 @@ export function Copropriete() {
 
   return (
     <div className="w-full">
+      <SEO
+        title="Diagnostics Copropriété Syndic Landes 40 | DTA DTG | MDIAGNOSTIC Soustons"
+        description="Diagnostics immobiliers obligatoires pour copropriété et syndic dans les Landes : DTA (Dossier Technique Amiante), DTG (Diagnostic Technique Global). Diagnostiqueuse certifiée à Soustons intervenant sur Hossegor, Capbreton, Dax."
+        keywords="DTA copropriété Landes, DTG Landes, diagnostic amiante copropriété Soustons, diagnostic technique global Hossegor, dossier technique amiante Capbreton, syndic diagnostic Dax, DTA Landes 40, DTG copropriété, diagnostiqueur syndic"
+        canonical="https://www.mdiagnostic.fr/copropriete"
+      />
       {/* Header */}
       <section className="text-white py-16" style={{ background: 'linear-gradient(to bottom right, #818958, #6b7148)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
