@@ -408,18 +408,18 @@ export function CGV() {
                   À défaut d'accord amiable, les tribunaux compétents seront ceux du ressort du siège social de MDIAGNOSTIC.
                 </p>
                 
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
-                  <h3 className="font-semibold text-blue-900 mb-3">Médiation de la consommation</h3>
-                  <p className="text-sm text-blue-800 mb-3">
+                <div className="mt-6 p-4 border-l-4 rounded" style={{ backgroundColor: '#e8ebe0', borderColor: '#818958' }}>
+                  <h3 className="font-semibold text-gray-900 mb-3">Médiation de la consommation</h3>
+                  <p className="text-sm text-gray-700 mb-3">
                     Conformément à l'article L612-1 du Code de la consommation, en cas de litige non résolu à l'amiable, vous pouvez recourir gratuitement à un médiateur de la consommation.
                   </p>
-                  <div className="bg-white rounded-md p-3 border border-blue-300">
+                  <div className="mt-3">
                     <p className="text-sm font-semibold text-gray-900 mb-2">Coordonnées du médiateur :</p>
                     <p className="text-sm text-gray-800"><strong>CM2C</strong></p>
                     <p className="text-sm text-gray-700">49 Rue de Ponthieu</p>
                     <p className="text-sm text-gray-700">75008 PARIS</p>
                     <p className="text-sm text-gray-700 mt-2">
-                      <strong>Site web :</strong> <a href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.cm2c.net</a>
+                      <strong>Site web :</strong> <a href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: '#818958' }}>www.cm2c.net</a>
                     </p>
                     <p className="text-sm text-gray-700">
                       <strong>Tél :</strong> 01 89 47 00 14

@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Info */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
@@ -92,6 +92,78 @@ export function Footer() {
                   className="hover:opacity-80 transition-opacity text-white"
                 >
                   Attestation RT2012
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Villes - Principales communes pour SEO */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Nos Villes</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-hossegor"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Hossegor
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-capbreton"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Capbreton
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-dax"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Dax
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-soustons"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Soustons
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-bayonne"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Bayonne
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-biarritz"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Biarritz
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/diagnostic-immobilier-anglet"
+                  className="hover:opacity-80 transition-opacity text-white"
+                >
+                  Diagnostic Anglet
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/zone-intervention"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: '#818958' }}
+                >
+                  + Voir toutes les villes →
                 </Link>
               </li>
             </ul>

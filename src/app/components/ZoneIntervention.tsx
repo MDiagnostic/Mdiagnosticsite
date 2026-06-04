@@ -4,6 +4,62 @@ import { SEO } from "./SEO";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function ZoneIntervention() {
+  // Mapping des communes vers leurs pages dédiées (pour SEO)
+  const communeToSlug: { [key: string]: string } = {
+    "Hossegor": "diagnostic-immobilier-hossegor",
+    "Capbreton": "diagnostic-immobilier-capbreton",
+    "Dax": "diagnostic-immobilier-dax",
+    "Soustons": "diagnostic-immobilier-soustons",
+    "Saint-Paul-lès-Dax": "diagnostic-immobilier-saint-paul-les-dax",
+    "Seignosse": "diagnostic-immobilier-seignosse",
+    "Labenne": "diagnostic-immobilier-labenne",
+    "Ondres": "diagnostic-immobilier-ondres",
+    "Tarnos": "diagnostic-immobilier-tarnos",
+    "Vieux-Boucau-les-Bains": "diagnostic-immobilier-vieux-boucau-les-bains",
+    "Messanges": "diagnostic-immobilier-messanges",
+    "Moliets-et-Maa": "diagnostic-immobilier-moliets-et-maa",
+    "Léon": "diagnostic-immobilier-leon",
+    "Tosse": "diagnostic-immobilier-tosse",
+    "Azur": "diagnostic-immobilier-azur",
+    "Saint-Vincent-de-Tyrosse": "diagnostic-immobilier-saint-vincent-de-tyrosse",
+    "Linxe": "diagnostic-immobilier-linxe",
+    "Peyrehorade": "diagnostic-immobilier-peyrehorade",
+    "Biscarrosse": "diagnostic-immobilier-biscarrosse",
+    "Parentis-en-Born": "diagnostic-immobilier-parentis-en-born",
+    "Mimizan": "diagnostic-immobilier-mimizan",
+    "Lit-et-Mixe": "diagnostic-immobilier-lit-et-mixe",
+    "Saint-Geours-de-Maremne": "diagnostic-immobilier-saint-geours-de-maremne",
+    "Bayonne": "diagnostic-immobilier-bayonne",
+    "Anglet": "diagnostic-immobilier-anglet",
+    "Biarritz": "diagnostic-immobilier-biarritz",
+    "Bidart": "diagnostic-immobilier-bidart",
+    "Guéthary": "diagnostic-immobilier-guethary",
+    "Saint-Jean-de-Luz": "diagnostic-immobilier-saint-jean-de-luz",
+    "Ciboure": "diagnostic-immobilier-ciboure",
+    "Hendaye": "diagnostic-immobilier-hendaye",
+    "Urrugne": "diagnostic-immobilier-urrugne",
+    "Ustaritz": "diagnostic-immobilier-ustaritz",
+    "Cambo-les-Bains": "diagnostic-immobilier-cambo-les-bains",
+    // Nouvelles villes ajoutées
+    "Bias": "diagnostic-immobilier-bias",
+    "Sanguinet": "diagnostic-immobilier-sanguinet",
+    "Aureilhan": "diagnostic-immobilier-aureilhan",
+    "Saint-Girons-Plage": "diagnostic-immobilier-saint-girons-plage",
+    "Saint-Julien-en-Born": "diagnostic-immobilier-saint-julien-en-born",
+    "Pontonx-sur-l'Adour": "diagnostic-immobilier-pontonx-sur-l-adour",
+    "Narrosse": "diagnostic-immobilier-narrosse",
+    "Castets": "diagnostic-immobilier-castets",
+    "Magescq": "diagnostic-immobilier-magescq",
+    "Tartas": "diagnostic-immobilier-tartas",
+    "Saint-Martin-de-Seignanx": "diagnostic-immobilier-saint-martin-de-seignanx",
+    "Mont-de-Marsan": "diagnostic-immobilier-mont-de-marsan",
+    "Saint-Pierre-du-Mont": "diagnostic-immobilier-saint-pierre-du-mont",
+    "Hagetmau": "diagnostic-immobilier-hagetmau",
+    "Aire-sur-l'Adour": "diagnostic-immobilier-aire-sur-l-adour",
+    "Saint-Vincent-de-Paul": "diagnostic-immobilier-saint-vincent-de-paul",
+    "Orthevielle": "diagnostic-immobilier-orthevielle",
+  };
+
   // Communes organisées par secteur géographique
   const zones = [
     {
@@ -18,7 +74,7 @@ export function ZoneIntervention() {
       secteur: "Côte Sud",
       color: "#c2cc94",
       communes: [
-        "Hossegor", "Capbreton", "Seignosse", "Vieux-Boucau-les-Bains", 
+        "Hossegor", "Capbreton", "Seignosse", "Vieux-Boucau-les-Bains",
         "Messanges", "Azur", "Moliets-et-Maa", "Soustons", "Tosse"
       ]
     },
@@ -140,12 +196,25 @@ export function ZoneIntervention() {
                   </h3>
                 </div>
                 <ul className="space-y-2">
-                  {zone.communes.map((commune, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700">
-                      <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#818958' }} />
-                      <span>{commune}</span>
-                    </li>
-                  ))}
+                  {zone.communes.map((commune, idx) => {
+                    const slug = communeToSlug[commune];
+                    return (
+                      <li key={idx} className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#818958' }} />
+                        {slug ? (
+                          <Link
+                            to={`/${slug}`}
+                            className="hover:underline"
+                            style={{ color: '#6b7148' }}
+                          >
+                            {commune}
+                          </Link>
+                        ) : (
+                          <span>{commune}</span>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -259,7 +328,7 @@ export function ZoneIntervention() {
             {/* Intro */}
             <div className="bg-white rounded-2xl shadow-sm p-8">
               <p className="text-lg text-gray-700 leading-relaxed">
-                <strong>MDIAGNOSTIC</strong>, diagnostiqueuse certifiée basée à <strong>Soustons (40140)</strong>, vous accompagne pour tous vos diagnostics immobiliers obligatoires dans les <strong>Landes (40)</strong> et le <strong>Pays Basque (64)</strong>.
+                <strong>MDIAGNOSTIC</strong>, diagnostiqueuse certifiée basée à <Link to="/diagnostic-immobilier-soustons" className="hover:underline" style={{ color: '#6b7148' }}><strong>Soustons (40140)</strong></Link>, vous accompagne pour tous vos diagnostics immobiliers obligatoires dans les <strong>Landes (40)</strong> et le <strong>Pays Basque (64)</strong>.
               </p>
             </div>
 
@@ -269,7 +338,7 @@ export function ZoneIntervention() {
                 DPE, Amiante, Plomb : Intervention Rapide à Hossegor, Capbreton et Dax
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                Que vous vendiez ou louiez un bien immobilier à <strong>Hossegor</strong>, <strong>Capbreton</strong>, <strong>Dax</strong>, <strong>Saint-Paul-lès-Dax</strong> ou dans les communes environnantes, je réalise l'ensemble de vos <strong>diagnostics DPE</strong>, <strong>diagnostics amiante</strong>, <strong>diagnostics plomb (CREP)</strong>, ainsi que les diagnostics <strong>électricité</strong>, <strong>gaz</strong> et <strong>termites</strong>.
+                Que vous vendiez ou louiez un bien immobilier à <Link to="/diagnostic-immobilier-hossegor" className="hover:underline" style={{ color: '#6b7148' }}><strong>Hossegor</strong></Link>, <Link to="/diagnostic-immobilier-capbreton" className="hover:underline" style={{ color: '#6b7148' }}><strong>Capbreton</strong></Link>, <Link to="/diagnostic-immobilier-dax" className="hover:underline" style={{ color: '#6b7148' }}><strong>Dax</strong></Link>, <Link to="/diagnostic-immobilier-saint-paul-les-dax" className="hover:underline" style={{ color: '#6b7148' }}><strong>Saint-Paul-lès-Dax</strong></Link> ou dans les communes environnantes, je réalise l'ensemble de vos <strong>diagnostics DPE</strong>, <strong>diagnostics amiante</strong>, <strong>diagnostics plomb (CREP)</strong>, ainsi que les diagnostics <strong>électricité</strong>, <strong>gaz</strong> et <strong>termites</strong>.
               </p>
             </div>
 
@@ -279,7 +348,7 @@ export function ZoneIntervention() {
                 Secteur Bayonne, Anglet, Biarritz : Diagnostiqueur Certifié Pays Basque
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                J'interviens également sur le secteur du <strong>Pays Basque</strong> : <strong>Bayonne</strong>, <strong>Anglet</strong>, <strong>Biarritz</strong>, <strong>Bidart</strong>, <strong>Saint-Jean-de-Luz</strong> et <strong>Hendaye</strong>. Diagnostics conformes à la réglementation en vigueur, rapports détaillés et remise sous 24 à 48h.
+                J'interviens également sur le secteur du <strong>Pays Basque</strong> : <Link to="/diagnostic-immobilier-bayonne" className="hover:underline" style={{ color: '#6b7148' }}><strong>Bayonne</strong></Link>, <Link to="/diagnostic-immobilier-anglet" className="hover:underline" style={{ color: '#6b7148' }}><strong>Anglet</strong></Link>, <Link to="/diagnostic-immobilier-biarritz" className="hover:underline" style={{ color: '#6b7148' }}><strong>Biarritz</strong></Link>, <Link to="/diagnostic-immobilier-bidart" className="hover:underline" style={{ color: '#6b7148' }}><strong>Bidart</strong></Link>, <Link to="/diagnostic-immobilier-saint-jean-de-luz" className="hover:underline" style={{ color: '#6b7148' }}><strong>Saint-Jean-de-Luz</strong></Link> et <Link to="/diagnostic-immobilier-hendaye" className="hover:underline" style={{ color: '#6b7148' }}><strong>Hendaye</strong></Link>. Diagnostics conformes à la réglementation en vigueur, rapports détaillés et remise sous 24 à 48h.
               </p>
             </div>
 
@@ -289,7 +358,7 @@ export function ZoneIntervention() {
                 Mimizan, Biscarrosse, Vieux-Boucau : Diagnostics sur la Côte Nord
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                De <strong>Mimizan</strong> à <strong>Vieux-Boucau-les-Bains</strong> en passant par <strong>Biscarrosse</strong>, <strong>Sanguinet</strong>, <strong>Parentis-en-Born</strong>, <strong>Messanges</strong> et <strong>Seignosse</strong>, MDIAGNOSTIC assure vos diagnostics immobiliers avec réactivité et professionnalisme.
+                De <Link to="/diagnostic-immobilier-mimizan" className="hover:underline" style={{ color: '#6b7148' }}><strong>Mimizan</strong></Link> à <Link to="/diagnostic-immobilier-vieux-boucau-les-bains" className="hover:underline" style={{ color: '#6b7148' }}><strong>Vieux-Boucau-les-Bains</strong></Link> en passant par <Link to="/diagnostic-immobilier-biscarrosse" className="hover:underline" style={{ color: '#6b7148' }}><strong>Biscarrosse</strong></Link>, <strong>Sanguinet</strong>, <Link to="/diagnostic-immobilier-parentis-en-born" className="hover:underline" style={{ color: '#6b7148' }}><strong>Parentis-en-Born</strong></Link>, <Link to="/diagnostic-immobilier-messanges" className="hover:underline" style={{ color: '#6b7148' }}><strong>Messanges</strong></Link> et <Link to="/diagnostic-immobilier-seignosse" className="hover:underline" style={{ color: '#6b7148' }}><strong>Seignosse</strong></Link>, MDIAGNOSTIC assure vos diagnostics immobiliers avec réactivité et professionnalisme.
               </p>
             </div>
 
@@ -299,7 +368,7 @@ export function ZoneIntervention() {
                 Demandez Votre Devis Gratuit
               </h3>
               <p className="text-white text-lg mb-6 opacity-95">
-                Vous avez un projet immobilier à <strong>Hossegor</strong>, <strong>Capbreton</strong>, <strong>Dax</strong>, <strong>Bayonne</strong> ou ailleurs dans les Landes ? Contactez-moi dès maintenant pour un devis personnalisé et sans engagement.
+                Vous avez un projet immobilier à <Link to="/diagnostic-immobilier-hossegor" className="hover:underline text-white"><strong>Hossegor</strong></Link>, <Link to="/diagnostic-immobilier-capbreton" className="hover:underline text-white"><strong>Capbreton</strong></Link>, <Link to="/diagnostic-immobilier-dax" className="hover:underline text-white"><strong>Dax</strong></Link>, <Link to="/diagnostic-immobilier-bayonne" className="hover:underline text-white"><strong>Bayonne</strong></Link> ou ailleurs dans les Landes ? Contactez-moi dès maintenant pour un devis personnalisé et sans engagement.
               </p>
               <Link
                 to="/contact"
