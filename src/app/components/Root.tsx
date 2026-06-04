@@ -5,6 +5,7 @@ import { CookieConsent } from "./CookieConsent";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CallButton } from "./CallButton";
 import { GoogleAnalytics } from "./GoogleAnalytics";
+import { SchemaOrg } from "./SchemaOrg";
 import { useEffect } from "react";
 
 export function Root() {
@@ -18,6 +19,7 @@ export function Root() {
   return (
     <div className="min-h-screen flex flex-col">
       <GoogleAnalytics />
+      <SchemaOrg />
       <Header />
       <Breadcrumbs />
       <main className="flex-1">
