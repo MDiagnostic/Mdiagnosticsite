@@ -561,11 +561,11 @@ export function Reviews() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
           {sortedReviews.slice(0, 5).map((review, index) => (
             <div
               key={index}
-              className={`bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow ${reviews.length === 5 && index === 4 ? 'md:col-span-2 lg:col-span-1 lg:col-start-1 lg:mx-auto lg:max-w-md' : ''}`}
+              className="bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow w-full md:w-[calc(50%-12px)] max-w-md"
             >
               <Quote
                 className="absolute top-4 right-4 h-8 w-8 text-gray-300"
