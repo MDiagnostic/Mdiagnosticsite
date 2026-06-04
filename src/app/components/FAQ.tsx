@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -56,42 +55,8 @@ const defaultFAQItems: FAQItem[] = [
 ];
 
 export function FAQ({ items = defaultFAQItems, title = "Questions Fréquentes" }: FAQProps) {
-  // Generate Schema.org FAQPage
-  useEffect(() => {
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": items.map((item) => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": item.answer,
-        },
-      })),
-    };
-
-    // Remove existing FAQ schema if any
-    const existingSchema = document.querySelector('script[data-schema="faq"]');
-    if (existingSchema) {
-      existingSchema.remove();
-    }
-
-    // Add new schema
-    const scriptElement = document.createElement("script");
-    scriptElement.setAttribute("type", "application/ld+json");
-    scriptElement.setAttribute("data-schema", "faq");
-    scriptElement.textContent = JSON.stringify(structuredData);
-    document.head.appendChild(scriptElement);
-
-    // Cleanup on unmount
-    return () => {
-      const schema = document.querySelector('script[data-schema="faq"]');
-      if (schema) {
-        schema.remove();
-      }
-    };
-  }, [items]);
+  // Schema.org FAQPage is now managed centrally in SchemaOrg.tsx
+  // This prevents duplicate FAQPage schemas
 
   return (
     <section className="py-16 bg-gray-50">
