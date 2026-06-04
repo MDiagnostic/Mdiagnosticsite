@@ -61,7 +61,7 @@ export function Location() {
       icon: AlertTriangle,
       title: "Diagnostic Amiante",
       description:
-        "Recherche de matériaux et produits contenant de l'amiante dans les biens construits avant le 1er juillet 1997.",
+        "Recherche de matériaux et produits contenant de l'amiante dans les biens dont le permis de construire a été déposé avant le 1er juillet 1997.",
       validity: "Illimitée si négatif, 3 ans si positif",
       mandatory: "Location",
       detailedContent: (
@@ -168,7 +168,7 @@ export function Location() {
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Rapport et anomalies</h4>
           <p className="mb-4">
-            Le rapport identifie les anomalies qui pourraient présenter un danger pour les locataires. Bien que le propriétaire ne soit pas obligé de réaliser tous les travaux avant la location, les anomalies graves doivent être corriges pour garantir la sécurité des occupants.
+            Le rapport identifie les anomalies qui pourraient présenter un danger pour les locataires. Bien que le propriétaire ne soit pas obligé de réaliser tous les travaux avant la location, les anomalies graves doivent être corrigées pour garantir la sécurité des occupants.
           </p>
           <p>
             Le <strong>diagnostic électricité location Landes</strong> sécurise le bail et protège les locataires.
@@ -180,7 +180,7 @@ export function Location() {
       icon: Flame,
       title: "Diagnostic Gaz",
       description:
-        "Vérification de la sécurité de l'installation intérieure de gaz pour les installations de plus de 15 ans.",
+        "Vérification de la sécurité de l'installation intérieure de gaz (gaz de ville ou propane) pour les installations de plus de 15 ans.",
       validity: "6 ans",
       mandatory: "Location",
       detailedContent: (
@@ -294,7 +294,7 @@ export function Location() {
             Si la surface réelle est <strong>inférieure de plus de 5%  celle mentionnée dans le bail</strong>, le locataire peut exiger une diminution du loyer proportionnelle à la différence de surface. Cette demande peut être faite à tout moment pendant la durée du bail et s'applique dès la prise d'effet du bail.
           </p>
           
-          <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Validit</h4>
+          <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Validité</h4>
           <p className="mb-4">
             Le mesurage loi Boutin a une <strong>validité illimitée</strong> tant qu'aucun travaux modifiant la superficie habitable du logement n'est réalisé. En cas de réaménagement ou d'agrandissement, un nouveau mesurage doit être effectué.
           </p>

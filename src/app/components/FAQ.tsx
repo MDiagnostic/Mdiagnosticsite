@@ -31,7 +31,7 @@ const defaultFAQItems: FAQItem[] = [
   },
   {
     question: "Quelle est la durée de validité des diagnostics ?",
-    answer: "DPE : 10 ans. Amiante : illimité si absence. Plomb : illimité si absence, sinon 1 an (vente) ou 6 ans (location). Électricit et gaz : 3 ans (vente) ou 6 ans (location). Termites : 6 mois. ERP : 6 mois.",
+    answer: "DPE : 10 ans. Amiante : illimité si absence. Plomb : illimité si absence, sinon 1 an (vente) ou 6 ans (location). Électricité et gaz : 3 ans (vente) ou 6 ans (location). Termites : 6 mois. ERP : 6 mois.",
   },
   {
     question: "Combien de temps dure l'intervention sur place ?",

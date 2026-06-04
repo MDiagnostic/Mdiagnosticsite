@@ -72,7 +72,7 @@ export function Vente() {
       icon: AlertTriangle,
       title: "Diagnostic Amiante",
       description:
-        "Recherche de matériaux et produits contenant de l'amiante dans les biens construits avant le 1er juillet 1997.",
+        "Recherche de matériaux et produits contenant de l'amiante dans les biens dont le permis de construire a été déposé avant le 1er juillet 1997.",
       validity: "Illimitée si négatif, 3 ans si positif",
       mandatory: "Vente",
       detailedContent: (
@@ -84,7 +84,7 @@ export function Vente() {
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Biens concernés et matériaux recherchés</h4>
           <p className="mb-4">
-            Le diagnostic est <strong>obligatoire pour tous les biens construits avant le 1er juillet 1997</strong>, date de l'interdiction totale de l'amiante en France. L'amiante peut se trouver dans de nombreux matériaux : dalles de sol, toitures en fibrociment (plaques ondulées), faux plafonds, conduits, enduits, colles, joints, canalisations, bardages extérieurs.
+            Le diagnostic est <strong>obligatoire pour tous les biens dont le permis de construire a été déposé avant le 1er juillet 1997</strong>, date de l'interdiction totale de l'amiante en France. L'amiante peut se trouver dans de nombreux matériaux : dalles de sol, toitures en fibrociment (plaques ondulées), faux plafonds, conduits, enduits, colles, joints, canalisations, bardages extérieurs.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Méthode de diagnostic</h4>
@@ -198,7 +198,7 @@ export function Vente() {
       icon: Flame,
       title: "Diagnostic Gaz",
       description:
-        "Vérification de la sécurité de l'installation intérieure de gaz pour les installations de plus de 15 ans.",
+        "Vérification de la sécurité de l'installation intérieure de gaz (gaz de ville ou propane) pour les installations de plus de 15 ans.",
       validity: "3 ans",
       mandatory: "Vente",
       detailedContent: (

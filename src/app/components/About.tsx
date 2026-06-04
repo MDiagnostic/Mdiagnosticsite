@@ -62,9 +62,9 @@ export function About() {
 
   return (
     <div className="w-full">
-      <SEO 
-        title="À Propos - MDIAGNOSTIC | Diagnostiqueuse Immobilière Certifiée Soustons Landes"
-        description="Diagnostiqueuse immobilière certifiée et assurée basée à Soustons dans les Landes (40). DUT Génie Civil, licence en énergétique. Intervention dans un rayon de 50 km : Hossegor, Capbreton, Dax et toutes les Landes. Rigueur, transparence et expertise locale."
+      <SEO
+        title="À Propos MDIAGNOSTIC | Diagnostiqueuse Certifiée Soustons 40"
+        description="Marine DUFFOURG, diagnostiqueuse certifiée LCP et assurée à Soustons (40). DUT Génie Civil, licence énergétique. Rayon 50 km : Hossegor, Capbreton, Dax. ☎️ 07 77 78 26 59."
         keywords="diagnostiqueuse immobilière Soustons, diagnostiqueur certifié Landes 40, expert diagnostic Hossegor, COFRAC, assurance professionnelle, DUT Génie Civil, énergétique, diagnostic immobilier Dax"
         canonical="https://www.mdiagnostic.fr/a-propos"
       />

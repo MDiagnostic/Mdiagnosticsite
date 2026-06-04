@@ -92,7 +92,7 @@ export function Home() {
         <>
           <h4 className="font-semibold text-xl text-gray-900 mb-4">Qu'est-ce que le diagnostic amiante ?</h4>
           <p className="mb-4">
-            Le <strong>diagnostic amiante</strong> consiste à rechercher la présence d'amiante dans les matériaux et produits de construction d'un bien immobilier. L'amiante est une fibre minérale naturelle utilisée massivement dans la construction jusqu'en 1997 pour ses proprits isolantes et sa résistance au feu. Cependant, l'inhalation de fibres d'amiante peut provoquer de graves maladies respiratoires, dont des cancers.
+            Le <strong>diagnostic amiante</strong> consiste à rechercher la présence d'amiante dans les matériaux et produits de construction d'un bien immobilier. L'amiante est une fibre minérale naturelle utilisée massivement dans la construction jusqu'en 1997 pour ses propriétés isolantes et sa résistance au feu. Cependant, l'inhalation de fibres d'amiante peut provoquer de graves maladies respiratoires, dont des cancers.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">À quoi sert le diagnostic amiante ?</h4>
@@ -102,7 +102,7 @@ export function Home() {
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Quels biens sont concernés ?</h4>
           <p className="mb-4">
-            Le diagnostic amiante est <strong>obligatoire pour tous les biens construits avant le 1er juillet 1997</strong>, date de l'interdiction totale de l'amiante en France. Cela concerne la majorité des maisons et appartements anciens dans les Landes, notamment à Soustons, Dax, Hossegor et Capbreton.
+            Le diagnostic amiante est <strong>obligatoire pour tous les biens dont le permis de construire a été déposé avant le 1er juillet 1997</strong>, date de l'interdiction totale de l'amiante en France. Cela concerne la majorité des maisons et appartements anciens dans les Landes, notamment à Soustons, Dax, Hossegor et Capbreton.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Validité du diagnostic</h4>
@@ -198,12 +198,12 @@ export function Home() {
       icon: Flame,
       title: "Diagnostic Gaz",
       description:
-        "Vérification de la sécurité de l'installation de gaz naturel pour prévenir les risques d'explosion et d'intoxication.",
+        "Vérification de la sécurité de l'installation de gaz (gaz de ville ou propane) pour prévenir les risques d'explosion et d'intoxication.",
       detailedContent: (
         <>
           <h4 className="font-semibold text-xl text-gray-900 mb-4">Qu'est-ce que le diagnostic gaz ?</h4>
           <p className="mb-4">
-            Le <strong>diagnostic gaz</strong> est un contrôle obligatoire de l'installation intérieure de gaz naturel d'un logement. Il vérifie l'état des appareils de chauffage et de production d'eau chaude, la ventilation, l'étanchéité des canalisations et le bon fonctionnement des dispositifs de sécurité. Ce diagnostic protège contre les risques d'intoxication au monoxyde de carbone, d'explosion et de fuite de gaz.
+            Le <strong>diagnostic gaz</strong> est un contrôle obligatoire de l'installation intérieure de gaz (gaz de ville ou propane) d'un logement. Il vérifie l'état des appareils de chauffage et de production d'eau chaude, la ventilation, l'étanchéité des canalisations et le bon fonctionnement des dispositifs de sécurité. Ce diagnostic protège contre les risques d'intoxication au monoxyde de carbone, d'explosion et de fuite de gaz.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">À quoi sert le diagnostic gaz ?</h4>
@@ -213,7 +213,7 @@ export function Home() {
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Installations concernées</h4>
           <p className="mb-4">
-            Le diagnostic gaz est <strong>obligatoire pour toute installation de plus de 15 ans</strong> alimentée en gaz naturel (gaz de ville) lors d'une vente ou d'une location. Dans les Landes, de nombreux logements à Soustons, Dax, Hossegor et Capbreton sont équipés d'installations au gaz nécessitant ce contrôle.
+            Le diagnostic gaz est <strong>obligatoire pour toute installation de plus de 15 ans</strong> alimentée en gaz de ville ou propane lors d'une vente ou d'une location. Dans les Landes, de nombreux logements à Soustons, Dax, Hossegor et Capbreton sont équipés d'installations au gaz nécessitant ce contrôle.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Validité du diagnostic</h4>
@@ -239,7 +239,7 @@ export function Home() {
         <>
           <h4 className="font-semibold text-xl text-gray-900 mb-4">Qu'est-ce que le diagnostic termites ?</h4>
           <p className="mb-4">
-            Le <strong>diagnostic termites</strong> (ou état parasitaire) consiste �� rechercher la présence de termites et autres insectes xylophages dans un bâtiment. Les termites se nourrissent de la cellulose du bois et peuvent causer des dégâts structurels importants en affaiblissant les charpentes, planchers, menuiseries et ossatures. Ces insectes agissent de manière discrète et peuvent passer inaperçus pendant des années.
+            Le <strong>diagnostic termites</strong> (ou état parasitaire) consiste à rechercher la présence de termites et autres insectes xylophages dans un bâtiment. Les termites se nourrissent de la cellulose du bois et peuvent causer des dégâts structurels importants en affaiblissant les charpentes, planchers, menuiseries et ossatures. Ces insectes agissent de manière discrète et peuvent passer inaperçus pendant des années.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">À quoi sert le diagnostic termites ?</h4>
@@ -271,7 +271,7 @@ export function Home() {
         <>
           <h4 className="font-semibold text-xl text-gray-900 mb-4">Qu'est-ce que l'ERP ?</h4>
           <p className="mb-4">
-            L'<strong>État des Risques et Pollutions (ERP)</strong>, anciennement appelé ERNMT (État des Risques Naturels, Miniers et Technologiques), est un document d'information obligatoire qui informe l'acqureur ou le locataire sur les risques auxquels le bien immobilier est exposé. Il recense les risques naturels (inondations, mouvements de terrain, feux de forêt), miniers, technologiques, sismiques, radon et la pollution des sols.
+            L'<strong>État des Risques et Pollutions (ERP)</strong>, anciennement appelé ERNMT (État des Risques Naturels, Miniers et Technologiques), est un document d'information obligatoire qui informe l'acquéreur ou le locataire sur les risques auxquels le bien immobilier est exposé. Il recense les risques naturels (inondations, mouvements de terrain, feux de forêt), miniers, technologiques, sismiques, radon et la pollution des sols.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">À quoi sert l'ERP ?</h4>
@@ -447,9 +447,9 @@ export function Home() {
 
   return (
     <div className="w-full">
-      <SEO 
-        title="MDIAGNOSTIC - Diagnostic Immobilier Soustons, Hossegor, Capbreton | Landes 40"
-        description="Diagnostiqueuse immobilière certifiée à Soustons dans les Landes (40). DPE, amiante, plomb, électricité, gaz, termites. Intervention rapide sur Hossegor, Capbreton, Dax et toutes les Landes dans un rayon de 50 km. Devis gratuit."
+      <SEO
+        title="Diagnostic Immobilier Soustons Landes 40 | MDIAGNOSTIC"
+        description="Diagnostiqueuse certifiée à Soustons (40). DPE, amiante, plomb, électricité, gaz, termites. Intervention 48h sur Hossegor, Capbreton, Dax. ☎️ 07 77 78 26 59 - Devis gratuit."
         keywords="diagnostic immobilier Soustons, diagnostiqueur Landes 40, DPE Hossegor, diagnostic amiante Capbreton, diagnostic plomb Dax, diagnostic électricité Landes, diagnostic gaz, termites Landes, ERP, loi carrez, diagnostiqueuse certifiée 40"
         canonical="https://www.mdiagnostic.fr"
       />

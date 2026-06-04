@@ -26,7 +26,7 @@ export function Services() {
       icon: AlertTriangle,
       title: "Diagnostic Amiante",
       description:
-        "Recherche de matériaux et produits contenant de l'amiante dans les biens construits avant le 1er juillet 1997.",
+        "Recherche de matériaux et produits contenant de l'amiante dans les biens dont le permis de construire a été déposé avant le 1er juillet 1997.",
       validity: "Illimitée si négatif, 3 ans si positif",
       mandatory: "Vente et location",
     },
@@ -50,7 +50,7 @@ export function Services() {
       icon: Flame,
       title: "Diagnostic Gaz",
       description:
-        "Vérification de la sécurité de l'installation intérieure de gaz pour les installations de plus de 15 ans.",
+        "Vérification de la sécurité de l'installation intérieure de gaz (gaz de ville ou propane) pour les installations de plus de 15 ans.",
       validity: "3 ans (vente) / 6 ans (location)",
       mandatory: "Vente et location",
     },
@@ -83,8 +83,8 @@ export function Services() {
   return (
     <div className="w-full">
       <SEO
-        title="Services Diagnostics Immobiliers Landes 40 | MDIAGNOSTIC Soustons"
-        description="Tous nos services de diagnostic immobilier dans les Landes : DPE, amiante, plomb, électricité, gaz, termites, ERP. Diagnostiqueuse certifiée à Soustons intervenant sur Hossegor, Capbreton, Dax. Devis gratuit."
+        title="Services Diagnostics Immobiliers Landes 40 | MDIAGNOSTIC"
+        description="DPE, amiante, plomb, électricité, gaz, termites, ERP dans les Landes. Diagnostiqueuse certifiée à Soustons. Intervention Hossegor, Capbreton, Dax. ☎️ Devis gratuit 07 77 78 26 59."
         keywords="services diagnostic immobilier Landes, DPE Soustons, diagnostic amiante Hossegor, diagnostic plomb Capbreton, diagnostic électricité Dax, diagnostic gaz Landes, termites 40, ERP Landes, diagnostiqueur certifié"
         canonical="https://www.mdiagnostic.fr/services"
       />

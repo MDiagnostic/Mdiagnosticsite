@@ -33,7 +33,7 @@ export function AutresPrestations() {
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Biens et travaux concernés</h4>
           <p className="mb-4">
-            Le diagnostic est <strong>obligatoire pour tous les bâtiments construits avant le 1er juillet 1997</strong>, qu'il s'agisse d'habitations, de locaux commerciaux ou industriels. Tous types de travaux sont concernés : rénovation complète ou partielle, démolition, perçage de murs, retrait de revêtements, réfection de toiture, etc.
+            Le diagnostic est <strong>obligatoire pour tous les bâtiments dont le permis de construire a été déposé avant le 1er juillet 1997</strong>, qu'il s'agisse d'habitations, de locaux commerciaux ou industriels. Tous types de travaux sont concernés : rénovation complète ou partielle, démolition, perçage de murs, retrait de revêtements, réfection de toiture, etc.
           </p>
           
           <h4 className="font-semibold text-xl text-gray-900 mb-4 mt-6">Méthode et rapport</h4>

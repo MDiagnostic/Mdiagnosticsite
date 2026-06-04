@@ -18,7 +18,7 @@ export function CGV() {
               <Scale className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Conditions G��nérales de Vente
+              Conditions Générales de Vente
             </h1>
             <p className="text-xl text-gray-600">
               MDIAGNOSTIC - Diagnostics Techniques Immobiliers
@@ -409,13 +409,22 @@ export function CGV() {
                 </p>
                 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
-                  <h3 className="font-semibold text-blue-900 mb-2">Médiation de la consommation</h3>
-                  <p className="text-sm text-blue-800">
+                  <h3 className="font-semibold text-blue-900 mb-3">Médiation de la consommation</h3>
+                  <p className="text-sm text-blue-800 mb-3">
                     Conformément à l'article L612-1 du Code de la consommation, en cas de litige non résolu à l'amiable, vous pouvez recourir gratuitement à un médiateur de la consommation.
                   </p>
-                  <p className="text-sm text-blue-800 mt-2">
-                    <strong>Informations à venir :</strong> MDIAGNOSTIC est en cours d'adhésion à un service de médiation agréé. Les coordonnées du médiateur seront communiquées prochainement.
-                  </p>
+                  <div className="bg-white rounded-md p-3 border border-blue-300">
+                    <p className="text-sm font-semibold text-gray-900 mb-2">Coordonnées du médiateur :</p>
+                    <p className="text-sm text-gray-800"><strong>CM2C</strong></p>
+                    <p className="text-sm text-gray-700">49 Rue de Ponthieu</p>
+                    <p className="text-sm text-gray-700">75008 PARIS</p>
+                    <p className="text-sm text-gray-700 mt-2">
+                      <strong>Site web :</strong> <a href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.cm2c.net</a>
+                    </p>
+                    <p className="text-sm text-gray-700">
+                      <strong>Tél :</strong> 01 89 47 00 14
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -424,7 +433,7 @@ export function CGV() {
           {/* Pied de page */}
           <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200 text-center text-sm text-gray-600">
             <p className="mb-2">
-              <strong>Dernière mise à jour :</strong> Mars 2026
+              <strong>Dernière mise à jour :</strong> Juin 2026
             </p>
             <p>
               Ces conditions générales de vente sont conformes à la réglementation en vigueur et peuvent être modifiées à tout moment.
