@@ -208,16 +208,28 @@ export function MentionsLegales() {
               <h2 className="text-xl font-semibold mb-4 text-gray-900">
                 10. Médiation de la consommation
               </h2>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <p className="mb-4">
-                  Conformément à <strong>l'article L612-1 du Code de la consommation</strong>, en cas de litige 
-                  non résolu à l'amiable avec MDIAGNOSTIC, vous pouvez recourir <strong>gratuitement</strong> à 
+              <div className="p-6 rounded-lg border-l-4" style={{ backgroundColor: '#e8ebe0', borderColor: '#818958' }}>
+                <p className="mb-4 text-gray-800">
+                  Conformément à <strong>l'article L612-1 du Code de la consommation</strong>, en cas de litige
+                  non résolu à l'amiable avec MDIAGNOSTIC, vous pouvez recourir <strong>gratuitement</strong> à
                   un médiateur de la consommation.
                 </p>
-                
-                <p className="text-sm text-blue-800 font-semibold">
-                  <strong>Informations à venir :</strong> MDIAGNOSTIC est en cours d'adhésion à un service de médiation agréé. 
-                  Les coordonnées du médiateur seront communiquées prochainement.
+
+                <div className="mt-4">
+                  <p className="font-semibold text-gray-900 mb-3">Coordonnées du médiateur :</p>
+                  <ul className="list-none space-y-1 ml-4 text-gray-800">
+                    <li><strong>Organisme :</strong> CM2C (Centre de Médiation de la Consommation de Conciliateurs)</li>
+                    <li><strong>Adresse :</strong> 49 Rue Ponthieu, 75008 PARIS</li>
+                    <li><strong>Site web :</strong> <a href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80" style={{ color: '#818958' }}>www.cm2c.net</a></li>
+                    <li><strong>Téléphone :</strong> 01 89 47 00 14</li>
+                  </ul>
+                </div>
+
+                <p className="mt-4 text-sm text-gray-600">
+                  Le recours à la médiation est <strong>gratuit</strong> pour le consommateur et permet de
+                  trouver une solution amiable au litige dans un délai de 90 jours à compter de la notification
+                  au médiateur. La médiation ne peut être saisie qu'après avoir tenté de résoudre le litige
+                  directement auprès de MDIAGNOSTIC.
                 </p>
               </div>
             </section>

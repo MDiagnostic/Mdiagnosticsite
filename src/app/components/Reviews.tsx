@@ -541,16 +541,31 @@ export function Reviews() {
               {averageRating.toFixed(1)}/5
             </span>
           </div>
-          <p className="text-gray-600 mb-6">
-            Basé sur {totalReviews} avis Google vérifiés
+          <p className="text-gray-600 mb-2">
+            Basé sur <strong>{totalReviews} avis Google vérifiés</strong>
           </p>
+          {reviews.length < totalReviews && (
+            <p className="text-sm text-gray-500 mb-4">
+              ({reviews.length} avis les plus utiles affichés)
+            </p>
+          )}
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity mb-6"
+            style={{ backgroundColor: '#818958' }}
+          >
+            <ExternalLink className="h-4 w-4" />
+            Voir tous les {totalReviews} avis sur Google
+          </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedReviews.slice(0, 6).map((review, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {sortedReviews.slice(0, 5).map((review, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow"
+              className={`bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow ${reviews.length === 5 && index === 4 ? 'md:col-span-2 lg:col-span-1 lg:col-start-1 lg:mx-auto lg:max-w-md' : ''}`}
             >
               <Quote
                 className="absolute top-4 right-4 h-8 w-8 text-gray-300"

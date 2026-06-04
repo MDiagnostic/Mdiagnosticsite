@@ -106,7 +106,32 @@ export function SchemaOrg() {
         },
         "name": "Certification LCP n°3340"
       }
-    ]
+    ],
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "SIRET",
+        "value": "100 486 927 00013"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "RCP Allianz",
+        "value": "64715683"
+      }
+    ],
+    "mediator": {
+      "@type": "Organization",
+      "name": "CM2C",
+      "url": "https://www.cm2c.net",
+      "telephone": "+33189470014",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "49 Rue Ponthieu",
+        "addressLocality": "Paris",
+        "postalCode": "75008",
+        "addressCountry": "FR"
+      }
+    }
   };
 
   // Schema Service - Services proposés
@@ -288,6 +313,14 @@ export function SchemaOrg() {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Les rapports de diagnostic sont remis sous 24 à 48 heures après l'intervention de MDIAGNOSTIC. Ils sont transmis par email au format PDF."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que faire en cas de litige avec un diagnostic immobilier ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En cas de litige, vous pouvez faire appel au médiateur de la consommation CM2C (Centre de Médiation de la Consommation de Conciliateurs). Contact : 49 Rue Ponthieu, 75008 Paris, tél. 01 89 47 00 14, www.cm2c.net. Conformément à l'article L612-1 du Code de la consommation, MDIAGNOSTIC garantit un recours gratuit au médiateur de la consommation."
         }
       }
     ]
