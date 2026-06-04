@@ -541,14 +541,9 @@ export function Reviews() {
               {averageRating.toFixed(1)}/5
             </span>
           </div>
-          <p className="text-gray-600 mb-2">
+          <p className="text-gray-600 mb-4">
             Basé sur <strong>{totalReviews} avis Google vérifiés</strong>
           </p>
-          {reviews.length < totalReviews && (
-            <p className="text-sm text-gray-500 mb-4">
-              ({reviews.length} avis les plus utiles affichés)
-            </p>
-          )}
           <a
             href={GOOGLE_REVIEW_URL}
             target="_blank"
