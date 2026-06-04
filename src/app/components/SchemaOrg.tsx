@@ -10,7 +10,11 @@ export function SchemaOrg() {
     "@type": "LocalBusiness",
     "@id": `${baseUrl}/#organization`,
     "name": "MDIAGNOSTIC",
-    "image": `${baseUrl}/logo.png`,
+    "image": [
+      "https://i.ibb.co/QjrVGYHz/logo.png",
+      "https://i.imgur.com/zwQXabR.jpg",
+      "https://i.imgur.com/hCbEGkq.jpeg"
+    ],
     "url": baseUrl,
     "telephone": "+33777782659",
     "email": "contact.mdiagnostic@gmail.com",
@@ -309,8 +313,8 @@ export function SchemaOrg() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Schema FAQ - uniquement sur pages pertinentes */}
-      {(location.pathname === "/" || location.pathname.includes("vente") || location.pathname.includes("location")) && (
+      {/* Schema FAQ - uniquement sur la page d'accueil */}
+      {location.pathname === "/" && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

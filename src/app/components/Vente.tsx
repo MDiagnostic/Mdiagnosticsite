@@ -61,9 +61,15 @@ export function Vente() {
           <p className="mb-3">
             Le DPE influence fortement la décision d'achat et le prix de vente. Les biens bien classés (A, B, C, D) se vendent plus rapidement et à meilleur prix. À l'inverse, les passoires thermiques (F et G) peuvent être difficiles à vendre et nécessitent souvent une décote importante.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>DPE vente Landes</strong> doit être réalisé par un diagnostiqueur certifié, équipé de logiciels et matériels conformes à la réglementation en vigueur.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Voir aussi :</strong> Pour une vente complète, découvrez nos autres diagnostics obligatoires : <a href="#amiante" className="underline" style={{ color: '#818958' }}>Diagnostic Amiante</a>, <a href="#plomb" className="underline" style={{ color: '#818958' }}>Diagnostic Plomb</a>, <a href="#electricite" className="underline" style={{ color: '#818958' }}>Diagnostic Électricité</a>, <a href="#gaz" className="underline" style={{ color: '#818958' }}>Diagnostic Gaz</a>, <a href="#termites" className="underline" style={{ color: '#818958' }}>Diagnostic Termites</a>.
+            </p>
+          </div>
         </>
       ),
     },
@@ -101,9 +107,15 @@ export function Vente() {
             <li><strong>Présence d'amiante en bon état</strong> : contrôle périodique obligatoire tous les 3 ans</li>
             <li><strong>Présence d'amiante dégradé</strong> : travaux de retrait ou confinement obligatoires</li>
           </ul>
-          <p>
+          <p className="mb-4">
             Le <strong>diagnostic amiante vente Landes</strong> protège la santé des futurs occupants et engage la responsabilité du vendeur en cas d'omission.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Bon à savoir :</strong> Les biens anciens (avant 1997) nécessitent souvent aussi un <a href="#plomb" className="underline" style={{ color: '#818958' }}>Diagnostic Plomb (CREP)</a> si construits avant 1949. Consultez aussi le <a href="#dpe" className="underline" style={{ color: '#818958' }}>DPE</a> obligatoire pour toute vente.
+            </p>
+          </div>
         </>
       ),
     },
@@ -143,9 +155,15 @@ export function Vente() {
           <p className="mb-4">
             En cas de présence de plomb dégradé (écailles, poussières), le vendeur doit informer l'acquéreur et peut être tenu de réaliser des travaux de mise en sécurité. Le CREP doit être annexé à la promesse de vente et à l'acte authentique.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>diagnostic plomb vente Landes (40)</strong> protège juridiquement le vendeur et garantit la sécurité sanitaire de l'acquéreur.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Diagnostics complémentaires :</strong> Les bâtiments anciens nécessitent également un <a href="#amiante" className="underline" style={{ color: '#818958' }}>Diagnostic Amiante</a> si construits avant 1997. Vérifiez aussi l'<a href="#electricite" className="underline" style={{ color: '#818958' }}>installation électrique</a> et le <a href="#gaz" className="underline" style={{ color: '#818958' }}>gaz</a> si plus de 15 ans.
+            </p>
+          </div>
         </>
       ),
     },
@@ -187,9 +205,15 @@ export function Vente() {
           <p className="mb-4">
             Le rapport liste les anomalies détectées classées par niveau de gravité. Bien que le vendeur ne soit pas obligé de réaliser les travaux avant la vente, leur mention permet à l'acquéreur d'être informé de l'état réel de l'installation et de prévoir le budget nécessaire à la mise en conformité. La validité du diagnostic est de <strong>3 ans</strong> pour la vente.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>diagnostic électricité vente Landes</strong> est un gage de transparence et de sécurité pour la transaction immobilière.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>À vérifier aussi :</strong> Si votre bien dispose d'une installation gaz, pensez au <a href="#gaz" className="underline" style={{ color: '#818958' }}>Diagnostic Gaz</a> également obligatoire pour les installations de plus de 15 ans.
+            </p>
+          </div>
         </>
       ),
     },
@@ -230,9 +254,15 @@ export function Vente() {
           <p className="mb-4">
             Si un danger immédiat (DGI) est identifié, le diagnostiqueur peut procéder à la fermeture de tout ou partie de l'installation pour garantir la sécurité. Le rapport classe les anomalies par niveau de gravité et précise les travaux à réaliser. La validité du diagnostic gaz est de <strong>3 ans</strong> pour une vente.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>diagnostic gaz vente Landes (40)</strong> est obligatoire pour sécuriser la transaction et protéger les futurs occupants.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Diagnostic complémentaire :</strong> Pensez également à faire vérifier votre <a href="#electricite" className="underline" style={{ color: '#818958' }}>installation électrique</a> si elle a plus de 15 ans.
+            </p>
+          </div>
         </>
       ),
     },
@@ -265,9 +295,15 @@ export function Vente() {
           <p className="mb-4">
             La validité du diagnostic termites n'est que de <strong>6 mois</strong> en raison de la rapidité de progression des colonies. En cas de présence de termites, le propriétaire doit effectuer une déclaration en mairie dans le mois suivant la découverte. L'acquéreur, informé de la présence ou non de termites, peut anticiper les éventuels traitements préventifs ou curatifs à mettre en œuvre.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>diagnostic termites Landes (40)</strong> protège votre patrimoine immobilier et évite les litiges après la vente.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Zone d'intervention :</strong> MDIAGNOSTIC intervient sur toute la côte landaise. Découvrez notre <Link to="/zone-intervention" className="underline" style={{ color: '#818958' }}>zone d'intervention complète</Link> (Hossegor, Capbreton, Dax, Soustons, Bayonne, etc.).
+            </p>
+          </div>
         </>
       ),
     },
@@ -308,9 +344,15 @@ export function Vente() {
           <p className="mb-4">
             L'ERP a une validité de <strong>6 mois</strong> et doit donc être à jour au moment de la signature de la promesse de vente et de l'acte authentique. Il doit obligatoirement être annexé au compromis de vente et à l'acte de vente. L'acquéreur a ainsi un droit à l'information complet sur les risques.
           </p>
-          <p>
+          <p className="mb-4">
             L'<strong>ERP vente Landes</strong> est un document obligatoire pour toute transaction immobilière dans le département.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Dossier diagnostic vente complet :</strong> L'ERP fait partie du dossier de diagnostics techniques (DDT). Consultez également le <a href="#dpe" className="underline" style={{ color: '#818958' }}>DPE</a>, le <a href="#termites" className="underline" style={{ color: '#818958' }}>diagnostic termites</a> et tous les autres diagnostics obligatoires.
+            </p>
+          </div>
         </>
       ),
     },
@@ -356,9 +398,15 @@ export function Vente() {
           <p className="mb-4">
             Le mesurage loi Carrez a une <strong>validité illimitée</strong> tant qu'aucun travaux modifiant la superficie du bien n'est réalisé. En cas de réaménagement, agrandissement ou division du lot, un nouveau mesurage doit être effectué.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>mesurage loi Carrez Landes</strong> doit être réalisé par un professionnel pour garantir sa précision et éviter tout litige.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Pour la location :</strong> Si vous louez votre bien, le mesurage requis est différent. Découvrez le <Link to="/location#boutin" className="underline" style={{ color: '#818958' }}>mesurage Loi Boutin</Link> obligatoire pour les baux de location.
+            </p>
+          </div>
         </>
       ),
     },
@@ -454,6 +502,39 @@ export function Vente() {
           content={services[selectedService].detailedContent}
         />
       )}
+
+      {/* Voir aussi - Maillage interne */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Découvrez aussi</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Link
+              to="/location"
+              className="p-6 border-2 rounded-lg hover:shadow-lg transition-shadow"
+              style={{ borderColor: '#818958' }}
+            >
+              <h3 className="font-semibold text-xl mb-2" style={{ color: '#818958' }}>
+                Diagnostics pour la Location
+              </h3>
+              <p className="text-gray-600">
+                Découvrez les diagnostics obligatoires pour mettre un bien en location : DPE, électricité, gaz, plomb, ERP, mesurage Loi Boutin.
+              </p>
+            </Link>
+            <Link
+              to="/copropriete"
+              className="p-6 border-2 rounded-lg hover:shadow-lg transition-shadow"
+              style={{ borderColor: '#818958' }}
+            >
+              <h3 className="font-semibold text-xl mb-2" style={{ color: '#818958' }}>
+                Diagnostics Copropriété
+              </h3>
+              <p className="text-gray-600">
+                Diagnostics obligatoires en copropriété : DPE collectif, diagnostic technique global (DTG), amiante parties communes.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Devis */}
       <section className="py-16 bg-gray-50">

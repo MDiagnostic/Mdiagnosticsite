@@ -298,9 +298,15 @@ export function Location() {
           <p className="mb-4">
             Le mesurage loi Boutin a une <strong>validité illimitée</strong> tant qu'aucun travaux modifiant la superficie habitable du logement n'est réalisé. En cas de réaménagement ou d'agrandissement, un nouveau mesurage doit être effectué.
           </p>
-          <p>
+          <p className="mb-4">
             Le <strong>mesurage loi Boutin Landes (40)</strong> évite tout litige avec le locataire et sécurise juridiquement le bail de location.
           </p>
+
+          <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f9f5', borderLeft: '4px solid #818958' }}>
+            <p className="text-sm text-gray-700">
+              <strong>Pour la vente :</strong> Si vous vendez un bien en copropriété, le mesurage requis est différent. Découvrez le <Link to="/vente#carrez" className="underline" style={{ color: '#818958' }}>mesurage Loi Carrez</Link> obligatoire pour les ventes.
+            </p>
+          </div>
         </>
       ),
     },
@@ -453,6 +459,39 @@ export function Location() {
           content={services[selectedService].detailedContent}
         />
       )}
+
+      {/* Voir aussi - Maillage interne */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Découvrez aussi</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Link
+              to="/vente"
+              className="p-6 border-2 rounded-lg hover:shadow-lg transition-shadow"
+              style={{ borderColor: '#818958' }}
+            >
+              <h3 className="font-semibold text-xl mb-2" style={{ color: '#818958' }}>
+                Diagnostics pour la Vente
+              </h3>
+              <p className="text-gray-600">
+                Découvrez les diagnostics obligatoires pour vendre un bien : DPE, amiante, plomb, électricité, gaz, termites, ERP, Loi Carrez.
+              </p>
+            </Link>
+            <Link
+              to="/copropriete"
+              className="p-6 border-2 rounded-lg hover:shadow-lg transition-shadow"
+              style={{ borderColor: '#818958' }}
+            >
+              <h3 className="font-semibold text-xl mb-2" style={{ color: '#818958' }}>
+                Diagnostics Copropriété
+              </h3>
+              <p className="text-gray-600">
+                Diagnostics obligatoires en copropriété : DPE collectif, diagnostic technique global (DTG), amiante parties communes.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Devis */}
       <section className="py-16 bg-gray-50">
