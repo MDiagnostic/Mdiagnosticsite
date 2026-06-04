@@ -1,6 +1,7 @@
-import { Star, Quote, ExternalLink, RefreshCw } from "lucide-react";
+import { Star, Quote, ExternalLink, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import Slider from "react-slick";
 
 interface GoogleReview {
   author_name: string;
@@ -43,6 +44,35 @@ export function Reviews() {
 
   // URL pour laisser un avis Google
   const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
+
+  // Composants pour les flèches du carousel
+  const NextArrow = (props: any) => {
+    const { onClick } = props;
+    return (
+      <button
+        onClick={onClick}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:opacity-80 transition-opacity"
+        style={{ backgroundColor: '#818958' }}
+        aria-label="Avis suivant"
+      >
+        <ChevronRight className="h-6 w-6 text-white" />
+      </button>
+    );
+  };
+
+  const PrevArrow = (props: any) => {
+    const { onClick } = props;
+    return (
+      <button
+        onClick={onClick}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:opacity-80 transition-opacity"
+        style={{ backgroundColor: '#818958' }}
+        aria-label="Avis précédent"
+      >
+        <ChevronLeft className="h-6 w-6 text-white" />
+      </button>
+    );
+  };
 
   // Vérifier le consentement cookies
   useEffect(() => {
@@ -556,56 +586,81 @@ export function Reviews() {
           </a>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-          {sortedReviews.slice(0, 5).map((review, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow w-full md:w-[calc(50%-12px)] max-w-md"
-            >
-              <Quote
-                className="absolute top-4 right-4 h-8 w-8 text-gray-300"
-              />
+        <div className="relative max-w-7xl mx-auto px-12">
+          <Slider
+            dots={true}
+            infinite={sortedReviews.length > 3}
+            speed={500}
+            slidesToShow={3}
+            slidesToScroll={1}
+            nextArrow={<NextArrow />}
+            prevArrow={<PrevArrow />}
+            responsive={[
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  infinite: sortedReviews.length > 2,
+                }
+              },
+              {
+                breakpoint: 640,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  infinite: sortedReviews.length > 1,
+                }
+              }
+            ]}
+          >
+            {sortedReviews.map((review, index) => (
+              <div key={index} className="px-3">
+                <div className="bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow h-full">
+                  <Quote className="absolute top-4 right-4 h-8 w-8 text-gray-300" />
 
-              <div className="flex items-center gap-3 mb-4">
-                {review.profile_photo_url ? (
-                  <img
-                    src={review.profile_photo_url}
-                    alt={review.author_name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
-                    {review.author_name.charAt(0).toUpperCase()}
-                  </div>
-                )}
-                <div className="flex-1">
-                  <div className="font-bold text-gray-900 text-lg">
-                    {review.author_name}
-                  </div>
-                  <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-4 w-4 ${i < review.rating ? 'fill-current text-yellow-400' : 'text-gray-300'}`}
+                  <div className="flex items-center gap-3 mb-4">
+                    {review.profile_photo_url ? (
+                      <img
+                        src={review.profile_photo_url}
+                        alt={review.author_name}
+                        className="w-12 h-12 rounded-full object-cover"
                       />
-                    ))}
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                        {review.author_name.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <div className="font-bold text-gray-900 text-lg">
+                        {review.author_name}
+                      </div>
+                      <div className="flex gap-1 mt-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-4 w-4 ${i < review.rating ? 'fill-current text-yellow-400' : 'text-gray-300'}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                    {review.text || "Client satisfait - Avis laissé sans commentaire"}
+                  </p>
+
+                  <div className="text-xs text-gray-500">
+                    {new Date(review.time * 1000).toLocaleDateString('fr-FR', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
                   </div>
                 </div>
               </div>
-
-              <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                {review.text || "Client satisfait - Avis laissé sans commentaire"}
-              </p>
-
-              <div className="text-xs text-gray-500">
-                {new Date(review.time * 1000).toLocaleDateString('fr-FR', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </div>
-            </div>
-          ))}
+            ))}
+          </Slider>
         </div>
 
         <div className="text-center mt-12">

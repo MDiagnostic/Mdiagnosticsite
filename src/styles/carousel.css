@@ -1,0 +1,40 @@
+/* Personnalisation du carousel React Slick */
+
+/* Points de navigation (dots) */
+.slick-dots {
+  bottom: -40px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px !important;
+  color: #818958 !important;
+  opacity: 0.3 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+  color: #818958 !important;
+}
+
+/* Espacement entre les slides */
+.slick-slide > div {
+  margin: 0 8px;
+}
+
+.slick-list {
+  margin: 0 -8px;
+}
+
+/* Assurer une hauteur uniforme pour toutes les cartes */
+.slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
