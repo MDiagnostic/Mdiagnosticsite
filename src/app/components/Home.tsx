@@ -346,7 +346,7 @@ export function Home() {
       </section>
 
       {/* ── Services ── */}
-      <section className="pt-4 pb-20 bg-gray-50">
+      <section className="pt-4 pb-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -487,17 +487,11 @@ export function Home() {
           </div>
         </div>
 
-        {/* Vague services → avantages */}
-        <div className="overflow-hidden leading-none">
-          <svg viewBox="0 0 1440 64" preserveAspectRatio="none" className="w-full h-12 md:h-16 block" fill="white">
-            <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" />
-          </svg>
-        </div>
       </section>
 
       {/* ── Avantages ── */}
-      <section className="pb-0 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
+      <section className="pb-0 bg-white rounded-t-[48px] -mt-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Pourquoi choisir MDIAGNOSTIC ?
