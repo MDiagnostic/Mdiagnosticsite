@@ -1,276 +1,58 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Contact Info */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          {/* Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
-            <div className="space-y-3">
+            <h3 className="font-semibold text-base mb-4" style={{ color: '#a8b070' }}>MDIAGNOSTIC</h3>
+            <div className="space-y-2 text-sm text-gray-400">
+              <a href="tel:0777782659" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                07 77 78 26 59
+              </a>
+              <a href="mailto:contact.mdiagnostic@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                contact.mdiagnostic@gmail.com
+              </a>
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>07 77 78 26 59</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>contact.mdiagnostic@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Soustons et Landes (40)</span>
+                <MapPin className="h-4 w-4 flex-shrink-0" />
+                Soustons — Landes (40)
               </div>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Navigation */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Nos Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link 
-                  to="/vente#dpe" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic de Performance Énergétique (DPE)
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/vente#amiante" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Amiante
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/vente#plomb" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Plomb
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/vente#electricite" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Électricité
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/vente#gaz" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Gaz
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/vente#termites" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Termites
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/autres-prestations" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Attestation RE2020
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/autres-prestations" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Attestation RT2012
-                </Link>
-              </li>
+            <h3 className="font-semibold text-base mb-4 text-gray-300">Navigation</h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Nos services</Link></li>
+              <li><Link to="/a-propos" className="hover:text-white transition-colors">À propos</Link></li>
+              <li><Link to="/zone-intervention" className="hover:text-white transition-colors">Zone d'intervention</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact & Devis</Link></li>
             </ul>
           </div>
 
-          {/* Villes - Principales communes pour SEO */}
+          {/* Légal */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Nos Villes</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-hossegor"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Hossegor
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-capbreton"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Capbreton
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-dax"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Dax
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-soustons"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Soustons
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-bayonne"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Bayonne
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-biarritz"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Biarritz
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/diagnostic-immobilier-anglet"
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Diagnostic Anglet
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/zone-intervention"
-                  className="hover:opacity-80 transition-opacity"
-                  style={{ color: '#818958' }}
-                >
-                  + Voir toutes les villes →
-                </Link>
-              </li>
+            <h3 className="font-semibold text-base mb-4 text-gray-300">Légal</h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><Link to="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link></li>
+              <li><Link to="/politique-confidentialite" className="hover:text-white transition-colors">Politique de confidentialité</Link></li>
+              <li><Link to="/cgv" className="hover:text-white transition-colors">CGV</Link></li>
+              <li><Link to="/gestion-cookies" className="hover:text-white transition-colors">Gestion des cookies</Link></li>
+              <li><Link to="/certifications" className="hover:text-white transition-colors">Certifications</Link></li>
             </ul>
-          </div>
-
-          {/* Info */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Informations</h3>
-            <ul className="space-y-2 mb-4">
-              <li>
-                <Link 
-                  to="/a-propos" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  À propos
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/contact" 
-                  className="hover:opacity-80 transition-opacity text-white"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-            <p className="text-sm text-gray-400">
-              Diagnostiqueuse immobilière certifiée, j'effectue tous vos
-              diagnostics immobiliers obligatoires dans les Landes dans le respect des normes
-              en vigueur.
-            </p>
-            <p className="text-xs text-gray-500 mt-2">
-              Certifiée LCP n°3340 - <Link to="/certifications" className="hover:underline" style={{ color: '#818958' }}>Voir mes certifications</Link>
-            </p>
-            <Link to="/zone-intervention" className="block mt-4 hover:opacity-80 transition-opacity">
-              <p className="text-sm text-gray-400 mb-2">
-                <strong>Interventions rapides dans les Landes (40) :</strong>
-              </p>
-            </Link>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Soustons, Hossegor, Capbreton, Dax, Saint-Vincent-de-Tyrosse, 
-              Vieux-Boucau-les-Bains, Labenne, Ondres, Tarnos, Seignosse, 
-              Saint-Paul-lès-Dax, Tosse, Azur, Messanges, Moliets-et-Maa, 
-              Léon, Linxe et toutes les communes landaises environnantes.
-            </p>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          {/* Logos de certification - version discrète */}
-          <div className="flex items-center justify-center gap-8 mb-6">
-            <div className="flex items-center gap-3 opacity-60">
-              <span className="text-xs text-gray-500 uppercase tracking-wide">Certificateur & Assurances</span>
-              <div className="bg-white rounded px-3 py-2 flex items-center justify-center">
-                <span className="font-bold text-sm" style={{ color: '#003781' }}>LCP</span>
-              </div>
-              <div className="bg-white rounded px-3 py-1.5 flex items-center justify-center">
-                <span className="font-bold text-xs" style={{ color: '#003781' }}>Allianz</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center text-sm text-gray-400">
-            <p className="mb-2">
-              &copy; {new Date().getFullYear()} MDIAGNOSTIC. Tous droits réservés.
-            </p>
-            <div className="flex flex-col gap-1 items-center">
-              <div className="flex flex-wrap gap-3 justify-center">
-                <Link 
-                  to="/politique-confidentialite" 
-                  className="hover:underline"
-                  style={{ color: '#818958' }}
-                >
-                  Politique de confidentialité
-                </Link>
-                <span>•</span>
-                <Link 
-                  to="/mentions-legales" 
-                  className="hover:underline"
-                  style={{ color: '#818958' }}
-                >
-                  Mentions légales
-                </Link>
-                <span>•</span>
-                <Link 
-                  to="/cgv" 
-                  className="hover:underline"
-                  style={{ color: '#818958' }}
-                >
-                  CGV
-                </Link>
-                <span>•</span>
-                <Link 
-                  to="/gestion-cookies" 
-                  className="hover:underline"
-                  style={{ color: '#818958' }}
-                >
-                  Gestion des cookies
-                </Link>
-              </div>
-              <p className="text-xs text-gray-500 mt-2 max-w-3xl">
-                MDIAGNOSTIC - SIRET : 100 486 927 00013 - RCP Allianz n° 64715683 - Certifications LCP. 
-                Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d'un droit 
-                d'accès, de rectification et de suppression des données vous concernant.
-              </p>
-            </div>
-          </div>
+        <div className="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+          © {new Date().getFullYear()} MDIAGNOSTIC — SIRET 100 486 927 00013 — RCP Allianz n° 64715683 — Certifié LCP n°3340
         </div>
       </div>
     </footer>

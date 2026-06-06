@@ -586,7 +586,7 @@ export function Reviews() {
           </a>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-12">
+        <div className="relative max-w-7xl mx-auto px-10 md:px-12">
           <Slider
             dots={true}
             infinite={sortedReviews.length > 3}
@@ -595,6 +595,7 @@ export function Reviews() {
             slidesToScroll={1}
             nextArrow={<NextArrow />}
             prevArrow={<PrevArrow />}
+            adaptiveHeight={false}
             responsive={[
               {
                 breakpoint: 1024,
@@ -610,13 +611,15 @@ export function Reviews() {
                   slidesToShow: 1,
                   slidesToScroll: 1,
                   infinite: sortedReviews.length > 1,
+                  arrows: false,
+                  dots: true,
                 }
               }
             ]}
           >
             {sortedReviews.map((review, index) => (
-              <div key={index} className="px-3">
-                <div className="bg-gray-50 rounded-lg p-6 relative border border-gray-200 hover:shadow-lg transition-shadow h-full">
+              <div key={index} className="px-2 md:px-3">
+                <div className="bg-gray-50 rounded-lg p-5 md:p-6 relative border border-gray-200 hover:shadow-lg transition-shadow">
                   <Quote className="absolute top-4 right-4 h-8 w-8 text-gray-300" />
 
                   <div className="flex items-center gap-3 mb-4">
