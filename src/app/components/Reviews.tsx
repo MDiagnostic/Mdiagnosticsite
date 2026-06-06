@@ -586,7 +586,7 @@ export function Reviews() {
           </a>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-10 md:px-12">
+        <div className="relative max-w-7xl mx-auto px-0 md:px-12 overflow-hidden">
           <Slider
             dots={true}
             infinite={sortedReviews.length > 3}
@@ -606,7 +606,7 @@ export function Reviews() {
                 }
               },
               {
-                breakpoint: 640,
+                breakpoint: 768,
                 settings: {
                   slidesToShow: 1,
                   slidesToScroll: 1,
