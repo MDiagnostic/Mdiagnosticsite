@@ -1,7 +1,6 @@
 import { Star, Quote, ExternalLink, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router";
-import Slider from "react-slick";
 
 interface GoogleReview {
   author_name: string;
@@ -32,47 +31,19 @@ export function Reviews() {
   const [debugInfo, setDebugInfo] = useState<any>(null);
   const [showDebug, setShowDebug] = useState(false);
   const [cookiesAccepted, setCookiesAccepted] = useState<boolean | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // 🔧 CONFIGURATION - REMPLACEZ PAR VOS VRAIES VALEURS
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   const GOOGLE_API_KEY = "AIzaSyBTzxHmnwWKJn7QdMY0qXkyjmou45aRPEA";
-  
-  // 🧪 MODE TEST : Place ID de la Tour Eiffel (320 000+ avis)
-  // const PLACE_ID = "ChIJLU7jZClu5kcR4PcOOO6p3I0"; // Tour Eiffel (TEST) ❌ DÉSACTIVÉ
-  
-  // 🏢 VOTRE VRAI PLACE ID (MDIAGNOSTIC Soustons)
-  const PLACE_ID = "ChIJ2WDD9qJ2FwAR5FokmFKkoMc"; //  ACTIVÉ
-
-  // URL pour laisser un avis Google
+  const PLACE_ID = "ChIJ2WDD9qJ2FwAR5FokmFKkoMc";
   const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
-
-  // Composants pour les flèches du carousel
-  const NextArrow = (props: any) => {
-    const { onClick } = props;
-    return (
-      <button
-        onClick={onClick}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:opacity-80 transition-opacity"
-        style={{ backgroundColor: '#818958' }}
-        aria-label="Avis suivant"
-      >
-        <ChevronRight className="h-6 w-6 text-white" />
-      </button>
-    );
-  };
-
-  const PrevArrow = (props: any) => {
-    const { onClick } = props;
-    return (
-      <button
-        onClick={onClick}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:opacity-80 transition-opacity"
-        style={{ backgroundColor: '#818958' }}
-        aria-label="Avis précédent"
-      >
-        <ChevronLeft className="h-6 w-6 text-white" />
-      </button>
-    );
-  };
 
   // Vérifier le consentement cookies
   useEffect(() => {
@@ -586,84 +557,103 @@ export function Reviews() {
           </a>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-0 md:px-12 overflow-hidden">
-          <Slider
-            dots={true}
-            infinite={sortedReviews.length > 3}
-            speed={500}
-            slidesToShow={3}
-            slidesToScroll={1}
-            nextArrow={<NextArrow />}
-            prevArrow={<PrevArrow />}
-            adaptiveHeight={false}
-            responsive={[
-              {
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 1,
-                  infinite: sortedReviews.length > 2,
-                }
-              },
-              {
-                breakpoint: 768,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                  infinite: sortedReviews.length > 1,
-                  arrows: false,
-                  dots: true,
-                }
-              }
-            ]}
-          >
-            {sortedReviews.map((review, index) => (
-              <div key={index} className="px-2 md:px-3">
-                <div className="bg-gray-50 rounded-lg p-5 md:p-6 relative border border-gray-200 hover:shadow-lg transition-shadow">
-                  <Quote className="absolute top-4 right-4 h-8 w-8 text-gray-300" />
+        {/* Carousel manuel — fiable sur tous les écrans */}
+        <div className="relative">
+          {/* Flèches desktop uniquement */}
+          {!isMobile && (
+            <>
+              <button
+                onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
+                disabled={currentIndex === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-lg transition-opacity ${currentIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:opacity-80'}`}
+                style={{ backgroundColor: '#818958' }}
+                aria-label="Avis précédent"
+              >
+                <ChevronLeft className="h-5 w-5 text-white" />
+              </button>
+              <button
+                onClick={() => setCurrentIndex(i => Math.min(sortedReviews.length - 3, i + 1))}
+                disabled={currentIndex >= sortedReviews.length - 3}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center shadow-lg transition-opacity ${currentIndex >= sortedReviews.length - 3 ? 'opacity-30 cursor-not-allowed' : 'hover:opacity-80'}`}
+                style={{ backgroundColor: '#818958' }}
+                aria-label="Avis suivant"
+              >
+                <ChevronRight className="h-5 w-5 text-white" />
+              </button>
+            </>
+          )}
 
+          {/* Mobile : 1 carte pleine largeur */}
+          {isMobile ? (
+            <div>
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm">
+                <Quote className="h-7 w-7 text-gray-200 mb-3" />
+                <div className="flex items-center gap-3 mb-4">
+                  {sortedReviews[currentIndex]?.profile_photo_url ? (
+                    <img src={sortedReviews[currentIndex].profile_photo_url} alt={sortedReviews[currentIndex].author_name} className="w-12 h-12 rounded-full object-cover" />
+                  ) : (
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style={{ backgroundColor: '#818958' }}>
+                      {sortedReviews[currentIndex]?.author_name.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-bold text-gray-900">{sortedReviews[currentIndex]?.author_name}</div>
+                    <div className="flex gap-0.5 mt-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className={`h-4 w-4 ${i < (sortedReviews[currentIndex]?.rating || 0) ? 'fill-current text-yellow-400' : 'text-gray-300'}`} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                  {sortedReviews[currentIndex]?.text || "Client satisfait"}
+                </p>
+                <div className="text-xs text-gray-400">
+                  {new Date((sortedReviews[currentIndex]?.time || 0) * 1000).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </div>
+              </div>
+              {/* Navigation mobile */}
+              <div className="flex items-center justify-center gap-4 mt-5">
+                <button onClick={() => setCurrentIndex(i => Math.max(0, i - 1))} disabled={currentIndex === 0} className={`p-2 rounded-full bg-white border shadow transition-opacity ${currentIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:shadow-md'}`} style={{ borderColor: '#818958', color: '#818958' }}>
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <span className="text-sm text-gray-500">{currentIndex + 1} / {sortedReviews.length}</span>
+                <button onClick={() => setCurrentIndex(i => Math.min(sortedReviews.length - 1, i + 1))} disabled={currentIndex >= sortedReviews.length - 1} className={`p-2 rounded-full bg-white border shadow transition-opacity ${currentIndex >= sortedReviews.length - 1 ? 'opacity-30 cursor-not-allowed' : 'hover:shadow-md'}`} style={{ borderColor: '#818958', color: '#818958' }}>
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          ) : (
+            /* Desktop : 3 cartes visibles */
+            <div className="grid grid-cols-3 gap-5 px-14">
+              {sortedReviews.slice(currentIndex, currentIndex + 3).map((review, index) => (
+                <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <Quote className="h-7 w-7 text-gray-200 mb-3" />
                   <div className="flex items-center gap-3 mb-4">
                     {review.profile_photo_url ? (
-                      <img
-                        src={review.profile_photo_url}
-                        alt={review.author_name}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
+                      <img src={review.profile_photo_url} alt={review.author_name} className="w-11 h-11 rounded-full object-cover flex-shrink-0" />
                     ) : (
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                      <div className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style={{ backgroundColor: '#818958' }}>
                         {review.author_name.charAt(0).toUpperCase()}
                       </div>
                     )}
-                    <div className="flex-1">
-                      <div className="font-bold text-gray-900 text-lg">
-                        {review.author_name}
-                      </div>
-                      <div className="flex gap-1 mt-1">
+                    <div>
+                      <div className="font-bold text-gray-900">{review.author_name}</div>
+                      <div className="flex gap-0.5 mt-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-4 w-4 ${i < review.rating ? 'fill-current text-yellow-400' : 'text-gray-300'}`}
-                          />
+                          <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'fill-current text-yellow-400' : 'text-gray-300'}`} />
                         ))}
                       </div>
                     </div>
                   </div>
-
-                  <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                    {review.text || "Client satisfait - Avis laissé sans commentaire"}
-                  </p>
-
-                  <div className="text-xs text-gray-500">
-                    {new Date(review.time * 1000).toLocaleDateString('fr-FR', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
+                  <p className="text-gray-700 text-sm leading-relaxed mb-4">{review.text || "Client satisfait"}</p>
+                  <div className="text-xs text-gray-400">
+                    {new Date(review.time * 1000).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-12">
