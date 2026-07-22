@@ -12,7 +12,7 @@ export function SEO({
   title = "MDIAGNOSTIC - Diagnostic Immobilier Soustons, Landes (40)",
   description = "Diagnostiqueuse immobilière certifiée à Soustons dans les Landes. DPE, amiante, plomb, électricité, gaz, termites. Intervention rapide sur Hossegor, Capbreton, Dax et toutes les Landes dans un rayon de 50 km. Devis gratuit.",
   keywords = "diagnostic immobilier, diagnostiqueur, DPE, amiante, plomb, électricité, gaz, termites, ERP, loi carrez, loi boutin, Soustons, Landes, Hossegor, Capbreton, Dax, Bayonne, Anglet, Biarritz, 40, 64, diagnostic vente, diagnostic location, diagnostiqueuse certifiée, Saint-Paul-lès-Dax, Tarnos, Seignosse, Saint-Vincent-de-Tyrosse, Vieux-Boucau-les-Bains, Labenne, Ondres, Tosse, Azur, Messanges, Moliets-et-Maa, Léon, Linxe, Saint-Jean-de-Luz, Hendaye, Tyrosse, Peyrehorade, Biscarrosse, Parentis-en-Born, Mimizan, Saint-Geours-de-Maremne, Lit-et-Mixe, Bidart, Guéthary, Ciboure, Urrugne, Ustaritz, Cambo-les-Bains",
-  ogImage = "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&fit=crop",
+  ogImage = "https://www.mdiagnostic.fr/og-image.png",
   canonical,
 }: SEOProps) {
   useEffect(() => {
